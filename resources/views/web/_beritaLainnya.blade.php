@@ -8,7 +8,7 @@
 
         @forelse($beritas as $berita)
           <div class="col-lg-4 col-md-6 py-2">
-              <img src="{{is_img($berita->image) }}" alt="" style="max-height:200px; width:100%;">
+              <img src="{{is_img($berita->image) }}" alt="{{ $berita->title }}" style="max-height:200px; width:100%;">
             <div class="box">
               <span> {{ Str::limit($berita->title, 30) }}</span>
               <div class="btn-wrap">
