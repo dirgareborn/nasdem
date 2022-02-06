@@ -4,7 +4,7 @@
         <div class="row content">
           <div class="col-lg-7" data-aos="fade-right">
               <div class="embed-responsive embed-responsive-16by9">
-                <img width="500" height="400" src="https://nasdem.id/wp-content/uploads/2021/08/Screenshot11.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://nasdem.id/wp-content/uploads/2021/08/Screenshot11.png 594w, https://nasdem.id/wp-content/uploads/2021/08/Screenshot11-300x236.png 300w" sizes="(max-width: 594px) 100vw, 594px" />	
+                <img width="590" height="467" src="https://nasdem.id/wp-content/uploads/2021/08/Screenshot11.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://nasdem.id/wp-content/uploads/2021/08/Screenshot11.png 594w, https://nasdem.id/wp-content/uploads/2021/08/Screenshot11-300x236.png 300w" sizes="(max-width: 594px) 100vw, 594px" />	
                     <a  href="#myModal" class="btn-youtube" data-toggle="modal" data-target="#myModal">
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                       viewBox="0 0 83 83" enable-background="new 0 0 83 83" xml:space="preserve" width="83" height="83">
@@ -17,7 +17,7 @@
                 </div>
           </div>
                   <!-- Modal HTML -->
-     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <!-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="video">
             <div class="modal-content">
                 <div class="modal-header">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
               
 
           <div class="col-lg-5 pt-4 pt-lg-0" data-aos="fade-left">
@@ -49,8 +49,8 @@
 
    
 
-    @push('js')
-    <script>
+@push('js')
+    <!-- <script>
 $(document).ready(function(){
     var url = $("#YTVideo").attr('src');
     $("#myModal").on('hide.bs.modal', function(){
@@ -60,5 +60,5 @@ $(document).ready(function(){
         $("#YTVideo").attr('src', url);
     });
 });
-</script>
+</script> -->
 @endpush
