@@ -30,6 +30,6 @@ class HomeController extends Controller
         ];
         
         // dd($data['berita']);
-        return view('Admin.index')->withData($data);
+        return view('admin.index')->withData($data);
     }
 }

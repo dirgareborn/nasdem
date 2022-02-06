@@ -47,7 +47,8 @@ class WebController extends Controller
     public function pengurus()
     {
         $pengurus = Pengurus::latest()->paginate(10);
-        return view('web.pengurus-dpd', compact('pengurus'));
+        $beritas = Berita::latest()->limit(6)->get();
+        return view('web.pengurus-dpd', compact('pengurus','beritas'));
     }
 
     public function detailPengurus($slug)
