@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -236,6 +236,10 @@ return [
             // 'type'         => 'darkmode-widget',
             'topnav_right' => true,
         ],
+        [
+            'type'         => 'darkmode-widget',
+            'topnav_right' => true,
+        ],
 
         // Sidebar items:
         [
@@ -247,22 +251,15 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
         ['header' => 'ORGANISASI'],
         [
-            'text' => 'Visi Misi',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-tags',
+            'text' => 'Profil Organisasi',
+            'url'  => 'admin/konfigurasi/1',
+            'icon' => 'fas fa-fw fa-cog',
         ],
         [
             'text' => 'Pengurus',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/pengurus',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'BERITA & KEGIATAN'],
@@ -273,19 +270,14 @@ return [
         ],
         [
             'text' => 'Kegiatan',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/kegiatan',
             'icon' => 'fas fa-fw fa-calendar-alt',
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Profil',
+            'url'  => 'admin/profile',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
         ],
         // ['header' => 'labels'],
         // [
@@ -303,22 +295,22 @@ return [
         //     'icon_color' => 'cyan',
         //     'url'        => '#',
         // ],
-        [
-            'type'         => 'navbar-notification',
-            'id'           => 'my-notification',      // An ID attribute (required).
-            'icon'         => 'fas fa-bell',          // A font awesome icon (required).
-            'icon_color'   => 'warning',              // The initial icon color (optional).
-            'label'        => 0,                      // The initial label for the badge (optional).
-            'label_color'  => 'danger',               // The initial badge color (optional).
-            'url'          => 'notifications/show',   // The url to access all notifications/elements (required).
-            'topnav_right' => true,                   // Or "topnav => true" to place on the left (required).
-            'dropdown_mode'   => true,                // Enables the dropdown mode (optional).
-            'dropdown_flabel' => 'All notifications', // The label for the dropdown footer link (optional).
-            'update_cfg'   => [
-                'url' => 'notifications/get',         // The url to periodically fetch new data (optional).
-                'period' => 30,                       // The update period for get new data (in seconds, optional).
-            ],
-        ]
+        // [
+        //     'type'         => 'navbar-notification',
+        //     'id'           => 'my-notification',      // An ID attribute (required).
+        //     'icon'         => 'fas fa-bell',          // A font awesome icon (required).
+        //     'icon_color'   => 'warning',              // The initial icon color (optional).
+        //     'label'        => 0,                      // The initial label for the badge (optional).
+        //     'label_color'  => 'danger',               // The initial badge color (optional).
+        //     'url'          => 'notifications/show',   // The url to access all notifications/elements (required).
+        //     'topnav_right' => true,                   // Or "topnav => true" to place on the left (required).
+        //     'dropdown_mode'   => true,                // Enables the dropdown mode (optional).
+        //     'dropdown_flabel' => 'All notifications', // The label for the dropdown footer link (optional).
+        //     'update_cfg'   => [
+        //         'url' => 'notifications/get',         // The url to periodically fetch new data (optional).
+        //         'period' => 30,                       // The update period for get new data (in seconds, optional).
+        //     ],
+        // ]
     ],
 
     /*
@@ -423,6 +415,87 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+
+        'DateRangePicker' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/moment/moment.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/daterangepicker/daterangepicker.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/daterangepicker/daterangepicker.css',
+                ],
+            ],
+        ],
+        'Summernote' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.css',
+                ],
+            ],
+        ],
+        'DatatablesPlugins' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/dataTables.buttons.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.bootstrap4.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.html5.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.print.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/jszip/jszip.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/css/buttons.bootstrap4.min.css',
                 ],
             ],
         ],

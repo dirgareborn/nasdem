@@ -2,46 +2,34 @@
 @section('title','Jangan Ketinggalan Kegiatan NasDem')
 @section('content')
 @include('web.partials.breadcrumbs')
-<!-- ======= Blog Section ======= -->
-<section id="blog" class="blog">
-    <div class="container" data-aos="fade-up">
-        <div class="row">
-            <div class="col-lg-8 entries">
-                <article class="entry">
-                    <div class="entry-img">
-                    <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <h2 class="entry-title">
-                    <a href="blog-single.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
-                    </h2>
-                    <div class="entry-meta">
-                    <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-                    </ul>
-                    </div>
-                    <div class="entry-content">
-                    <p>
-                        Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                        Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                    </p>
-                    <div class="read-more">
-                        <a href="blog-single.html">Read More</a>
-                    </div>
-                    </div>
-                </article><!-- End blog entry -->
-                <div class="blog-pagination">
-                    <ul class="justify-content-center">
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    </ul>
-                </div>
-            </div><!-- End blog entries list -->
-                @include('web.partials.sidebar')
-            </div>
+
+ <!-- ======= Portfolio Section ======= -->
+ <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Semua</li>
+              <li data-filter=".filter-lomba">Lomba</li>
+              <li data-filter=".filter-sosial">Sosial</li>
+            </ul>
+          </div>
         </div>
-    </div>
-</section><!-- End Blog Section -->
+        <div class="row portfolio-container" data-aos="fade-up">
+        @forelse($kegiatan as $kegiatan)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-lomba">
+            <img src="{{ is_img_event($kegiatan->image)}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        @empty
+        @endforelse
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
 @endsection

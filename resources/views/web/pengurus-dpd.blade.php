@@ -11,10 +11,11 @@
                 <h2>Susunan Kepengurusan<strong> DPD</strong></h2>
                 </div>
                 <div class="row">
+                    @forelse($pengurus as $pengurus)
                     <div class="col-md-3 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up">
                         <div class="member-img">
-                            <img src="{{asset('web/img/team/team-1.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ is_foto($pengurus->foto , $pengurus->jenis_kelamin) }}" class="img-fluid" alt="">
                             <div class="social">
                             <a href=""><i class="bi bi-twitter"></i></a>
                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -23,67 +24,18 @@
                             </div>
                         </div>
                         <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
+                            <h6>{{ $pengurus->nama }}</h6>
+                            <span>{{ $pengurus->jabatan->nama_jabatan }}</span>
                         </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member-img">
-                            <img src="{{asset('web/img/team/team-2.jpg') }}" class="img-fluid" alt="">
-                            <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
-                        </div>
-                        </div>
+                    @empty
+                    <div class="col-md-12">
+                        <h5>Belum Ada Data Pengurus</h5>
                     </div>
-
-                    <div class="col-md-3 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member-img">
-                            <img src="{{asset('web/img/team/team-3.jpg') }}" class="img-fluid" alt="">
-                            <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member-img">
-                            <img src="{{asset('web/img/team/team-4.jpg') }}" class="img-fluid" alt="">
-                            <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Amanda Jepson</h4>
-                            <span>Accountant</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-        </div>
+                    @endforelse
+                </div>
+            </div>
         @include('web.partials.sidebar')
         </div>
       </div>

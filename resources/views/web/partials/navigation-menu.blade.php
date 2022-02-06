@@ -15,6 +15,7 @@
             </ul>
           </li>
 
+          <li><a href="{{asset('visi-misi') }}">Visi Misi</a></li>
           <li><a href="{{asset('berita') }}">Berita</a></li>
           <li><a href="{{asset('kegiatan') }}">Kegiatan</a></li>
           <li><a href="{{asset('kontak-kami') }}">Kontak</a></li>

@@ -11,47 +11,24 @@
     <h3 class="sidebar-title">Kategori</h3>
     <div class="sidebar-item categories">
     <ul>
-        <li><a href="#">General <span>(25)</span></a></li>
-        <li><a href="#">Lifestyle <span>(12)</span></a></li>
-        <li><a href="#">Travel <span>(5)</span></a></li>
-        <li><a href="#">Design <span>(22)</span></a></li>
-        <li><a href="#">Creative <span>(8)</span></a></li>
-        <li><a href="#">Educaion <span>(14)</span></a></li>
+        <li><a href="#">Fraksi <span>(25)</span></a></li>
+        <li><a href="#">Daerah <span>(12)</span></a></li>
+        <li><a href="#">Internasional<span>(5)</span></a></li>
+        <li><a href="#">Press Release<span>(22)</span></a></li>
+        <li><a href="#">Opini<span>(8)</span></a></li>
+        <li><a href="#">Vaksinasi <span>(14)</span></a></li>
     </ul>
     </div><!-- End sidebar categories-->
 
     <h3 class="sidebar-title">Berita Terbaru</h3>
     <div class="sidebar-item recent-posts">
+    @forelse($beritas as $berita)
     <div class="post-item clearfix">
-        <img src="{{asset('web/img/blog/blog-recent-1.jpg') }}" alt="">
-        <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-        <time datetime="2020-01-01">Jan 1, 2020</time>
+        <img src="{{is_img($berita->image) }}" alt="">
+        <h4><a href="{{ route('detailBerita', $berita->slug) }}">{{ Str::limit($berita->title, 30) }}</a></h4>
+        <time datetime="2020-01-01">{{ format_date($berita->created_at)}}</time>
     </div>
-
-    <div class="post-item clearfix">
-        <img src="{{asset('web/img/blog/blog-recent-2.jpg') }}" alt="">
-        <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-        <time datetime="2020-01-01">Jan 1, 2020</time>
-    </div>
-
-    <div class="post-item clearfix">
-        <img src="{{asset('web/img/blog/blog-recent-3.jpg') }}" alt="">
-        <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-        <time datetime="2020-01-01">Jan 1, 2020</time>
-    </div>
-
-    <div class="post-item clearfix">
-        <img src="{{asset('web/img/blog/blog-recent-4.jpg') }}" alt="">
-        <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-        <time datetime="2020-01-01">Jan 1, 2020</time>
-    </div>
-
-    <div class="post-item clearfix">
-        <img src="{{asset('web/img/blog/blog-recent-5.jpg') }}" alt="">
-        <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-        <time datetime="2020-01-01">Jan 1, 2020</time>
-    </div>
-
+    @empty @endforelse
     </div><!-- End sidebar recent posts-->
 
     <h3 class="sidebar-title">Tags</h3>

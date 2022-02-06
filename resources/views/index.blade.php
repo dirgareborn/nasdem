@@ -12,8 +12,3 @@
 @section('footer')
     @include('web.partials.footer')
 @endsection
-
-       <!-- Services -->
-       <!-- Portfolio -->
-        <!-- About/SP -->
-        <!-- Berita Kegiatan -->

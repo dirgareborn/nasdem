@@ -281,7 +281,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #111;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #1bbd36;
+  color: #47aeff;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -307,7 +307,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #1bbd36;
+  color: #47aeff;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
@@ -495,6 +495,24 @@ section {
   bottom: 0;
   left: calc(50% - 25px);
 }
+.section-title-left h2 {
+  font-size: 32px;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  
+}
+.section-title-left h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #E21B23;
+  bottom: 0;
+}
 .section-title p {
   margin-bottom: 0;
 }
@@ -507,6 +525,29 @@ section {
   background: #E21B23;
   bottom: 0;
   z-index: 1;
+}
+
+/*--------------------------------------------------------------
+# Button Youtube Bideo
+--------------------------------------------------------------*/
+.embed-responsive{
+  content: "";
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:auto;
+  text-align: center;  
+}
+/* .embed-responsive img{
+  content: "";
+  position: relative;
+} */
+
+.embed-responsive a{
+  content: "";
+  position: absolute;
+  /* margin-top: -10px; */
 }
 /*--------------------------------------------------------------
 # Breadcrumbs
@@ -726,7 +767,7 @@ section {
 }
 .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
   color: #fff;
-  background: #1bbd36;
+  background: #E21B23;
 }
 .portfolio #portfolio-flters li:last-child {
   margin-right: 0;
@@ -764,7 +805,7 @@ section {
   color: #2b2b2b;
 }
 .portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #1bbd36;
+  color: #E21B23;
 }
 .portfolio .portfolio-item .portfolio-info .details-link {
   right: 10px;
@@ -786,7 +827,7 @@ section {
   transition: 0.3s;
 }
 .portfolio .portfolio-item .portfolio-links a:hover {
-  color: #57e76f;
+  color: #E21B23;
 }
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
@@ -811,10 +852,10 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #1bbd36;
+  border: 1px solid #E21B23;
 }
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #1bbd36;
+  background-color: #E21B23;
 }
 .portfolio-details .portfolio-info {
   padding: 30px;
@@ -903,7 +944,7 @@ section {
   top: 7px;
   position: absolute;
   font-size: 20px;
-  color: #1bbd36;
+  color: #E21B23;
 }
 .about-us .content p:last-child {
   margin-bottom: 0;
@@ -950,7 +991,7 @@ section {
   line-height: 0;
 }
 .team .member .social a:hover {
-  color: #1bbd36;
+  color: #E21B23;
 }
 .team .member .social i {
   font-size: 18px;
@@ -1010,7 +1051,7 @@ section {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: #1bbd36;
+  background-color: #0431B8;
 }
 
 /*--------------------------------------------------------------
@@ -1041,7 +1082,7 @@ section {
   transition: ease-in-out 0.3s;
 }
 .features .icon-box h3 a:hover {
-  color: #1bbd36;
+  color: #E21B23;
 }
 
 /*--------------------------------------------------------------
@@ -1067,7 +1108,7 @@ section {
 }
 .pricing h4 {
   font-size: 36px;
-  color: #1bbd36;
+  color: #E21B23;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   margin-bottom: 20px;
@@ -1094,7 +1135,7 @@ section {
   padding-bottom: 16px;
 }
 .pricing ul i {
-  color: #1bbd36;
+  color: #E21B23;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -1109,7 +1150,7 @@ section {
   text-align: center;
 }
 .pricing .btn-buy {
-  background: #1bbd36;
+  background: #E21B23;
   display: inline-block;
   padding: 8px 35px 10px 35px;
   border-radius: 4px;
@@ -1126,7 +1167,7 @@ section {
 }
 .pricing .featured h3 {
   color: #fff;
-  background: #1bbd36;
+  background: #E21B23;
 }
 .pricing .advanced {
   width: 200px;
@@ -1137,7 +1178,7 @@ section {
   z-index: 1;
   font-size: 14px;
   padding: 1px 0 3px 0;
-  background: #1bbd36;
+  background: #E21B23;
   color: #fff;
 }
 
@@ -1196,7 +1237,7 @@ section {
   transition: 0.3s;
 }
 .faq .faq-list a.collapsed:hover {
-  color: #1bbd36;
+  color: #E21B23;
 }
 .faq .faq-list a.collapsed .icon-show {
   display: inline-block;
@@ -1510,7 +1551,7 @@ section {
   transition: 0.3s;
 }
 .blog .entry .entry-footer a:hover {
-  color: #1bbd36;
+  color: #E21B23;
 }
 .blog .entry .entry-footer .cats {
   list-style: none;
@@ -1597,7 +1638,7 @@ section {
   transition: 0.3s;
 }
 .blog .blog-comments .comment h5 a:hover {
-  color: #1bbd36;
+  color: #E21B23;
 }
 .blog .blog-comments .comment h5 .reply {
   padding-left: 10px;
@@ -1634,7 +1675,7 @@ section {
 }
 .blog .blog-comments .reply-form input:focus {
   box-shadow: none;
-  border-color: #57e76f;
+  border-color: #E21B23;
 }
 .blog .blog-comments .reply-form textarea {
   border-radius: 4px;
@@ -1643,7 +1684,7 @@ section {
 }
 .blog .blog-comments .reply-form textarea:focus {
   box-shadow: none;
-  border-color: #57e76f;
+  border-color: #E21B23;
 }
 .blog .blog-comments .reply-form .form-group {
   margin-bottom: 25px;

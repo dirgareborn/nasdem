@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [
+            'berita' => \App\Models\Berita::all()->count(),
+            'kegiatan' => \App\Models\Kegiatan::all()->count(),
+            'pengurus' => \App\Models\Pengurus::all()->count(),
+        ];
+        
+        // dd($data['berita']);
+        return view('Admin.index')->withData($data);
     }
 }
