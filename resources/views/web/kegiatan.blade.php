@@ -18,12 +18,11 @@
         <div class="row portfolio-container" data-aos="fade-up">
         @forelse($kegiatan as $kegiatan)
           <div class="col-lg-4 col-md-6 portfolio-item filter-lomba">
-            <img src="{{ is_img_event($kegiatan->image)}}" class="img-fluid" alt="">
+            <img src="{{ is_img_event($kegiatan->image)}}" class="img-fluid" alt="{{ $kegiatan->title }}">
             <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <p>{{ $kegiatan->title }}</p>
+              <a href="{{ URL('/') }}/{{ is_img_event($kegiatan->image)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $kegiatan->title }}"><i class="bx bx-plus"></i></a>
+              <a href="{{ $kegiatan->slug }}" class="details-link" title="Lihat"><i class="bx bx-link"></i></a>
             </div>
           </div>
         @empty
