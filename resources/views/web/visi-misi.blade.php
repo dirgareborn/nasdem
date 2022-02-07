@@ -1,5 +1,5 @@
 @extends('web.layouts.app')
-@section('title','Berita')
+@section('title','Visi & Misi')
 @section('content')
 @include('web.partials.breadcrumbs')
 <!-- ======= Blog Section ======= -->
@@ -9,18 +9,18 @@
             <div class="col-lg-8 entries">
                
                 <article class="entry">
-                    <h2 class="entry-title">
-                    <a href="#">Visi Partai NasDem</a>
-                    </h2>
+                    <div class="section-title">
+                    <h2>Visi Partai NasDem </h2>
+                    </div>
                     <div class="entry-content">
                     <p>
                     {!! $konfigurasi->visi !!}
                     </p>
                     </div>
 
-                    <h2 class="entry-title">
-                    <a href="#">Misi Partai NasDem</a>
-                    </h2>
+                    <div class="section-title">
+                    <h2>Misi Partai NasDem </h2>
+                    </div>
                     <div class="entry-content">
                     <p>
                     {!! $konfigurasi->misi !!}

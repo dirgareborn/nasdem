@@ -23,20 +23,19 @@
                 <div class="col-lg-4 info">
                   <i class="bi bi-geo-alt"></i>
                   <h4>Alamat:</h4>
-                  <p>Jl. Gontang Raya No.54<br>Kab. Gowa, Sul-sel 90224</p>
+                  <p>{{ $konfigurasi->address ?? 'Jl. Gontang Raya No.54'}}<br>{{ $konfigurasi->pos_code ?? '90224'}}</p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-envelope"></i>
                   <h4>Email:</h4>
-                  <p>info@gowa.nasdem.id<br>support@gowa.nasdem.id</p>
+                  <p>{{ $konfigurasi->email ?? 'info@gowa.nasdem.id'}}</p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-phone"></i>
                   <h4>Whatsapp:</h4>
-                  <p><a href="tel:+6285299444337">085299444337</a></p>
-                  <p><a href="tel:+6285299444337">085299444337</a></p>
+                  <p><a href="tel:{{ $konfigurasi->telepon ?? '+6285299444337'}}">{{ $konfigurasi->telepon ?? '+6285299444337'}}</a></p>
                 </div>
               </div>
             </div>

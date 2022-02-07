@@ -57,7 +57,7 @@
             
             <x-adminlte-input name="nomor_registrasi" id="nomor_registrasi" label="Nomor Registrasi" value="{{ $pengurus->nomor_registrasi }}" fgroup-class="col-md-6 col-6"/>
         </div>
-        <a href="{{ route('admin.pengurus')}}" class="btn btn-flat btn-danger" theme="outline-danger"> <i class="fa fa-back"></i> Kembali</a>
+        <a href="{{ route('pengurus.index')}}" class="btn btn-flat btn-danger" theme="outline-danger"> <i class="fa fa-back"></i> Kembali</a>
         <x-adminlte-button class="btn-flat" type="submit" label="Update" theme="info" icon="fas  fa-save"/>
 </form>
 @section('plugins.DateRangePicker', true)

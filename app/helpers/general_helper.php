@@ -13,6 +13,24 @@ function format_date($date){
     Carbon::setLocale('id');
     return Carbon::parse($date)->translatedformat('d F Y');
 }
+
+
+if (!function_exists('get_tag_image')) {
+    function get_tag_image(string $content)
+    {
+        if (preg_match('/<img.+?src="(.+?)"/', $content, $match)) {
+            return $match[1];
+        }
+
+        return asset('img/no-image.png');
+    }
+}
+
+function is_logo($url = '', $file = '/img/logo.png')
+{
+    return is_img($url, $file);
+}
+
 function is_img($url = null){
  if(!$url){
     return asset('img/no-image.jpg');

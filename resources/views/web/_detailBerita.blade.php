@@ -13,13 +13,13 @@
                     <img src="{{is_img($berita->image)}}" alt="{{ $berita->title }}" class="img-fluid">
                     </div>
                     <h2 class="entry-title">
-                    <a href="#">{{ $berita->title }}</a>
+                    <a href="{{ route('detailBerita', $berita->slug) }}">{{ $berita->title }}</a>
                     </h2>
                     <div class="entry-meta">
                     <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ Auth::user()->name }}</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ format_date($berita->created_at)}}</time></a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ route('detailBerita', $berita->slug) }}">Administrator</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{ route('detailBerita', $berita->slug) }}"><time datetime="2020-01-01">{{ format_date($berita->created_at)}}</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{{ route('detailBerita', $berita->slug) }}">12 Comments</a></li>
                     </ul>
                     </div>
                     <div class="entry-content">

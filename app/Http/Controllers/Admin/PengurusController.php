@@ -62,9 +62,9 @@ class PengurusController extends Controller
             $pengurus->status = 1;
             $pengurus->save();
 
-            return redirect()->route('admin.pengurus')->with('success', 'Pengurus berhasil disimpan!');
+            return redirect()->route('pengurus.index')->with('success', 'Pengurus berhasil disimpan!');
         } catch (\Exception $e) {
-            return redirect()->route('admin.pengurus')->with('error', 'Pengurus gagal disimpan!');
+            return redirect()->route('pengurus.index')->with('error', 'Pengurus gagal disimpan!');
         }
     }
 
@@ -107,7 +107,7 @@ class PengurusController extends Controller
 
             $pengurus->update($input);
 
-            return redirect()->route('admin.pengurus')->with('success', 'Pengurus berhasil diperbaharui!');
+            return redirect()->route('pengurus.index')->with('success', 'Pengurus berhasil diperbaharui!');
         } catch (QueryException $e) {
             return back()->withInput()->with('error', 'Pengurus gagal disimpan!');
         }

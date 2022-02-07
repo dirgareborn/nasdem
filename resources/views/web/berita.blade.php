@@ -17,7 +17,7 @@
                     </h2>
                     <div class="entry-meta">
                     <ul>
-                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ route('detailBerita', $berita->slug) }}">{{ Auth::user()->name }}</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ route('detailBerita', $berita->slug) }}">Administrator</a></li>
                         <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{ route('detailBerita', $berita->slug) }}"><time datetime="2020-01-01">{{ format_date($berita->created_at)}}</time></a></li>
                         <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{{ route('detailBerita', $berita->slug) }}">12 Comments</a></li>
                     </ul>

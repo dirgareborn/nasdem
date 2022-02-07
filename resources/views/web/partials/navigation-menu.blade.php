@@ -9,7 +9,7 @@
         <ul>
           <li><a href="{{URL('/')}}" class="active">Beranda</a></li>
 
-          <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="{{asset('tentang-kami') }}"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{asset('pengurus-dpd') }}">Pengurus DPD</a></li>
             </ul>
@@ -23,12 +23,11 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
       <div class="header-social-links d-flex">
-        <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+      <a href="{{ $konfigurasi->twitter ?? 'https://twitter.com'}}" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="{{ $konfigurasi->facebook ?? 'https://facebook.com'}}" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="{{ $konfigurasi->instagram ?? 'https://instagram.com'}}" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="{{ $konfigurasi->youtube ?? 'https://youtube.com'}}" class="youtube"><i class="bu bi-youtube"></i></a>
       </div>
 
     </div>

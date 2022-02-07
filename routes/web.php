@@ -13,11 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', [App\Http\Controllers\WebController::class, 'beranda'])->name('beranda');
+Route::get('/tentang-kami', [App\Http\Controllers\WebController::class, 'tentang'])->name('tentang-kami');
+Route::get('/privacy-policy', [App\Http\Controllers\WebController::class, 'privacypolicy'])->name('privacy-policy');
 Route::get('/pengurus-dpd', [App\Http\Controllers\WebController::class, 'pengurus'])->name('pengurus-dpd');
 Route::get('/visi-misi', [App\Http\Controllers\WebController::class, 'VisiMisi'])->name('visi-misi');
 Route::get('/berita', [App\Http\Controllers\WebController::class, 'berita'])->name('berita');
