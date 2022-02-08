@@ -18,12 +18,18 @@ Route::get('/tentang-kami', [App\Http\Controllers\WebController::class, 'tentang
 Route::get('/privacy-policy', [App\Http\Controllers\WebController::class, 'privacypolicy'])->name('privacy-policy');
 Route::get('/pengurus-dpd', [App\Http\Controllers\WebController::class, 'pengurus'])->name('pengurus-dpd');
 Route::get('/visi-misi', [App\Http\Controllers\WebController::class, 'VisiMisi'])->name('visi-misi');
+
+
 Route::get('/berita', [App\Http\Controllers\WebController::class, 'berita'])->name('berita');
+Route::get('/tag/{slug}', [App\Http\Controllers\WebController::class, 'getByTag'])->name('berita.tag');
+Route::get('/kategori/{slug}', [App\Http\Controllers\WebController::class, 'getByCategory'])->name('berita.kategori');
 Route::get('/berita/{slug}', [App\Http\Controllers\WebController::class, 'detailBerita'])->name('detailBerita');
+
+
 Route::get('/kegiatan', [App\Http\Controllers\WebController::class, 'kegiatan'])->name('kegiatan');
 
 
-Route::get('/kontak-kami', [App\Http\Controllers\KontakController::class, 'kontak'])->name('kontak');
+Route::get('/kontak-kami', [App\Http\Controllers\WebController::class, 'kontak'])->name('kontak');
 Route::post('/kontak-kami', [App\Http\Controllers\KontakController::class, 'kontakPost'])->name('kontak.post');
 
 Auth::routes(['except' => ['register']]);

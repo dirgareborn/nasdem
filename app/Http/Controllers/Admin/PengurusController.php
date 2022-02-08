@@ -21,6 +21,8 @@ class PengurusController extends Controller
      *
      * @return Response
      */
+    
+
     public function index(Pengurus $pengurus)
     {
         $page_title       = 'Pengurus DPD';

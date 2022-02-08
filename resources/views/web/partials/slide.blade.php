@@ -46,7 +46,8 @@
         <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
       </a>
 
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+      <ol class="carousel-indicators" id="hero-carousel-indicators">
+      </ol>
 
     </div>
   </section><!-- End Hero -->

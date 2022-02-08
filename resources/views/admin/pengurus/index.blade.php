@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Berita')
+@section('title', 'Pengurus')
 
 @section('content_header')
 <div class="row mb-2">
@@ -34,41 +34,44 @@
             <!-- /.card-header -->
          
             <div class="card-body">
-                <table id="example1" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Jabatan</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($pengurus as $key => $pengurus)
+            @php
+                $heads = [
+                    ['label' => 'No', 'width' => 5],
+                    'Nama',
+                    ['label' => 'Jabatan', 'width' => 40],
+                    ['label' => 'Aksi', 'width' => 5],
+                ];
+                $config = [
+                    'order' => [[1, 'asc']],
+                    'columns' => [null, null, null, ['orderable' => false]],
+                ];
+                @endphp
+            <x-adminlte-datatable id="table2" :heads="$heads" striped hoverable bordered with-buttons compressed>
+                        @foreach ($pengurus as $key => $row)
                     <tr>
                     <td>{{ $key +1 }}</td>
-                    <td>{{ $pengurus->nama }}</td>
-                    <td>{{ $pengurus->jabatan->nama_jabatan }}</td>
+                    <td>{{ $row->nama }}</td>
+                    <td>{{ $row->jabatan->nama_jabatan }}</td>
                     <td>
-                    <form action="{{ route('pengurus.destroy', $pengurus->id) }}" method="POST">
-                        <a href="{{ route('pengurus.show', $pengurus->id) }}" class="btn btn-sm btn-flat btn-info"><i class="fa fa-eye"></i></a>
-                        <a href="{{ route('pengurus.edit', $pengurus->id) }}" class="btn btn-sm btn-flat btn-warning"><i class="fa fa-edit"></i></a>
-                        @csrf
+                    <form action="{{ route('pengurus.destroy', $row->id) }}" method="POST">
+                    <div class="btn-group"> 
+                                    <a href="{{ route('pengurus.show', $row->id) }}" class="btn btn-sm btn-default text-primary mx-1 shadow"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ route('pengurus.edit', $row->id) }}" class="btn btn-sm btn-default  text-teal mx-1 shadow"><i class="fa fa-edit"></i></a>
+                                    @csrf
                                     @method('DELETE')
-                        <x-adminlte-button class="btn-flat btn-sm" type="submit" label="" theme="danger" icon="fas  fa-trash"/>
+                                    <x-adminlte-button class="btn-default btn-sm text-danger mx-1 shadow" type="submit" label="" theme="danger" icon="fas  fa-trash"/>
+                                </div>
                     </form>
                     </td>
                     </tr>
                     @endforeach
-                </tbody>
-                </table>
+                </x-adminlte-datatable>
             </div>
         </div>
     </div>
 </div>
 @include('admin.jabatan.form')
 @include('admin.jabatan.index')
-@stop
-@section('js')
-
+@section('plugins.Datatables', true)
+@section('plugins.DatatablesPlugin', true)
 @stop

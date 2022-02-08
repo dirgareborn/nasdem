@@ -8,6 +8,7 @@ use App\Http\Requests\BeritaRequest;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use App\Models\Kategori;
 
 class BeritaController extends Controller
 {
@@ -19,21 +20,26 @@ class BeritaController extends Controller
 
     public function create()
     {
-        return view('admin.berita.create');
+        $categories = Kategori::whereSort('1')->orderby('nama', 'ASC')->get();
+        return view('admin.berita.create', compact('categories'));
     }
 
     public function store(BeritaRequest $request)
     {
-        try {
-            $input = $request->all();
-            if ($request->hasFile('image')) {
-                $file = $request->file('image');
-                $path = Storage::putFile('public/berita', $file);
-
-                $input['image'] = substr($path, 14) ;
-            }
-
-            Berita::create($input);
+    
+    try {
+                
+                $input = $request->all();
+                if ($request->hasFile('image')) {
+                    $file = $request->file('image');
+                    $path = Storage::putFile('public/berita', $file);
+                    
+                    $input['image'] = substr($path, 14) ;
+                }
+                
+                $tags = explode(",", $request->tags);
+                $berita = Berita::create($input);
+                $berita->tag($tags);
         } catch (\Exception $e) {
             return back()->withInput()->with('error', 'Simpan Berita gagal!');
         }

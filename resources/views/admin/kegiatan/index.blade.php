@@ -30,11 +30,11 @@
 
             @php
                 $heads = [
-                    'No',
+                    ['label' => 'No', 'width' => 5],
                     'Judul',
                     ['label' => 'Yang Menghadiri', 'width' => 20],
                     ['label' => 'Status', 'width' => 10],
-                    ['label' => 'Aksi', 'no-export' => true, 'width' => 5],
+                    ['label' => 'Aksi', 'width' => 5],
                 ];
                 $config = [
                     'order' => [[1, 'asc']],
@@ -42,7 +42,7 @@
                 ];
                 @endphp
 
-                <x-adminlte-datatable id="table1" :heads="$heads">
+                <x-adminlte-datatable id="table1" :heads="$heads" striped hoverable bordered with-buttons compressed>
                     @foreach($kegiatan as $key => $row)
                         <tr>
                             <td>{{ $key + 1}}</td>
@@ -57,11 +57,10 @@
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{ route('kegiatan.edit', $row['id'])}}" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                                        <i class="fa fa-lg fa-fw fa-pen"></i>
-                                    </a>
-                                    <a href="{{ route('kegiatan.show', $row['id'])}}" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
-                                        <i class="fa fa-lg fa-fw fa-eye"></i>
+                                    <a href="{{ route('kegiatan.edit', $row['id'])}}" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>
+                                    <a href="{{ route('kegiatan.show', $row['id'])}}" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details"><i class="fa fa-lg fa-fw fa-eye"></i></a>                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </x-adminlte-datatable>
@@ -69,5 +68,6 @@
         </div>
     </div>
 </div>
+@section('plugins.Datatables', true)
 @section('plugins.DatatablesPlugin', true)
 @stop

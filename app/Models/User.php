@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function berita(){
+        return $this->hasMany(Berita::class);
+    }
+
+    public function scopeGetBeritaByAuthor($query, $id){
+        return $query->where('user_id', $id);
+    }
 }

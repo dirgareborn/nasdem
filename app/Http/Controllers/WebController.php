@@ -8,7 +8,8 @@ use App\Models\Kegiatan;
 use App\Models\Pengurus;
 use App\Models\Konfigurasi;
 use App\Models\Jabatan;
-
+use App\Models\Kategori;
+use App\Models\User;
 
 class WebController extends Controller
 {
@@ -37,27 +38,54 @@ class WebController extends Controller
         $page_title = 'Visi Misi';
         $page_description = 'Halaman Visi Misi';
 
-        $beritas = Berita::where('is_active',1)->latest()->paginate(5);
+        $beritas = Berita::Active()->latest()->paginate(5);
         return view('web.visi-misi', compact('beritas','page_title', 'page_description'));
     }
 
-    public function berita()
+    public function berita(Request $request)
     {
         $page_title = 'Berita';
         $page_description = 'Halaman Berita';
 
-        $beritas = Berita::where('is_active',1)->latest()->paginate(5);
+        $q = $request->get('q');
+        $beritas = Berita::with('tagged','user')->Active()->where(function ($query) use ($q) {
+            if ($q) {
+                $query->where('title', 'like', '%'.$q.'%');
+            }
+        })->latest()->paginate(5);
+        // $beritas = Berita::with('tagged','user')->Active()->latest()->paginate(5);
+        return view('web.berita', compact('beritas','page_title', 'page_description'));
+    }
+  
+    public function getByCategory(Kategori $kategori, $slug)
+    {
+     
+        $getId   = $kategori->CatId($slug);
+        $beritas = Berita::with('tagged','user')->getByKategori($getId->id);
+        $page_title = $getId->nama;
+        $page_description = 'Halaman Berita';
+
+        return view('web.berita', compact('beritas','page_title', 'page_description'));
+    }
+  
+    public function getByTag($slug){
+     
+        $beritas = Berita::withAllTags($slug)->paginate(12);
+        $page_title = $slug;
+        $page_description = 'Berita Tag '.$slug;
+
         return view('web.berita', compact('beritas','page_title', 'page_description'));
     }
 
-    public function detailBerita($slug)
+    public function detailBerita(Berita $berita, $slug)
     {
-        $berita = Berita::where('slug', $slug)->first();
+        $berita = $berita->Detail($slug);
         $page_title = $berita->title;
         $page_description = $berita->description;
         $page_image = $berita->image;
-        $beritas = Berita::latest()->limit(6)->get();
-        return view('web._detailBerita', compact('berita','beritas','page_image','page_title', 'page_description'));
+        $beritas = Berita::where('kategori_id',$berita->kategori_id)->latest()->take(6)->get();
+        $category = Kategori::Sort(1)->with('beritas')->get();
+        return view('web._detailBerita', compact('category','berita','beritas','page_image','page_title', 'page_description'));
     }
 
     public function kegiatan()

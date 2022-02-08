@@ -424,8 +424,8 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   overflow: hidden;
   border: 0;
-  width: 12px;
-  height: 12px;
+  width: 35px;
+  height: 35px;
   border-radius: 50px;
   opacity: 0.6;
   transition: 0.3s;
@@ -602,11 +602,19 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+#services {
+  margin-top: -50px; 
+  background-size:720px;
+}
+
 .services .icon-box {
   text-align: center;
-  padding: 70px 20px 80px 20px;
+  padding: 70px 20px 30px 20px;
   transition: all ease-in-out 0.3s;
-  background: #fff;
+  /* background-image: url('/web/img/bg/h1-img-3.jpg'); */
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  /* background-size: auto; */
 }
 .services .icon-box .icon {
   margin: 0 auto;
@@ -635,10 +643,11 @@ section {
 .services .icon-box h4 {
   font-weight: 600;
   margin: 10px 0 15px 0;
-  font-size: 22px;
+  font-size: 36px;
+  color: #F7F7F7;
 }
 .services .icon-box h4 a {
-  color: #111;
+  color: #fff;
   transition: ease-in-out 0.3s;
 }
 .services .icon-box p {

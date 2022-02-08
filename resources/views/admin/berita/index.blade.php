@@ -30,10 +30,10 @@
 
             @php
                 $heads = [
-                    'No',
+                    ['label' => 'No', 'width' => 5],
                     'Judul',
-                    ['label' => 'Status', 'width' => 40],
-                    ['label' => 'Aksi', 'no-export' => true, 'width' => 5],
+                    ['label' => 'Status', 'width' => 10],
+                    ['label' => 'Aksi', 'no-export' => false, 'width' => 5],
                 ];
 
                 $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
@@ -52,7 +52,7 @@
                 ];
                 @endphp
 
-                <x-adminlte-datatable id="table1" :heads="$heads">
+                <x-adminlte-datatable id="table7" head-theme="bg-blue" :config="$config" :heads="$heads" striped hoverable bordered with-buttons compressed>
                     @foreach($beritas as $key => $row)
                         <tr>
                             <td>{{ $key + 1}}</td>
@@ -78,5 +78,6 @@
         </div>
     </div>
 </div>
+@section('plugins.Datatables', true)
 @section('plugins.DatatablesPlugin', true)
 @stop

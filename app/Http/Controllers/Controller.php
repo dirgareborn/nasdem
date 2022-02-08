@@ -7,7 +7,9 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Konfigurasi;
+use App\Models\Kategori;    
 use View;
+use Route;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -16,9 +18,15 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        if(Route::currentRouteName() !== 'kegiatan'){
+            $this->category = Kategori::Sort(1)->get()->load('beritas');
+        }else{
+            $this->category = Kategori::Sort(2)->get()->load('beritas');
+        }
         $this->konfigurasi = Konfigurasi::first();
         View::share([
             'konfigurasi' => $this->konfigurasi,
+            'category' => $this->category,
         ]);
 
     }

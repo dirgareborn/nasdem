@@ -12,8 +12,7 @@
                     <div class="entry-img">
                     <img src="{{is_img($berita->image)}}" alt="{{ $berita->title }}" class="img-fluid">
                     </div>
-                    <h2 class="entry-title">
-                    <a href="{{ route('detailBerita', $berita->slug) }}">{{ $berita->title }}</a>
+                    <h2 class="entry-title">{{ $berita->title }}</a>
                     </h2>
                     <div class="entry-meta">
                     <ul>
@@ -27,12 +26,25 @@
                         {{ strip_tags($berita->description) }}
                     </p>
                     </div>
+                    <div class="entry-footer">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="{{ route('berita.kategori', $berita->kategori->slug) }}">{{ $berita->kategori->nama }}</a></li>
+                </ul>
+
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                    @foreach($berita->tags as $tag)
+                    <li><a href="{{ route('berita.tag', $tag->slug) }}">{{ $tag->name }}</a></li>
+                    @endforeach
+                </ul>
+              </div>
                 </article><!-- End blog entry -->
-            </div><!-- End blog entries list -->
+                <!-- End blog entries list -->
+            </div>
             @include('web.partials.sidebar')
             @include('web._beritaLainnya')
         </div>
-        
     </div>
 </div>
 </section><!-- End Blog Section -->

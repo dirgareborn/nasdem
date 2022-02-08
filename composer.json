@@ -15,7 +15,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "mydnic/laravel-subscribers": "^1.7"
+        "mydnic/laravel-subscribers": "^1.7",
+        "rtconner/laravel-tagging": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -22,6 +22,7 @@ class Kegiatan extends Model
         'slug',
         'location',
         'date',
+        'kategori_id'
     ];
 
     /**
