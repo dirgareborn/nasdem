@@ -38,17 +38,17 @@ Auth::routes(['except' => ['register']]);
 Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('/admin/kategori', 'App\Http\Controllers\Admin\KategoriController', ['except' => ['show']]);
 Route::resource('/admin/berita', 'App\Http\Controllers\Admin\BeritaController');
 Route::resource('/admin/kegiatan', 'App\Http\Controllers\Admin\KegiatanController');
+Route::resource('/admin/jabatan', 'App\Http\Controllers\Admin\JabatanController',['except' => ['index','show']]);
 Route::resource('/admin/pengurus', 'App\Http\Controllers\Admin\PengurusController');
 Route::resource('/admin/konfigurasi', 'App\Http\Controllers\Admin\KonfigurasiController', ['except' => ['create', 'store','destroy']]);
-
-Route::post('/admin/jabatan', [App\Http\Controllers\Admin\JabatanController::class, 'store'])->name('jabatan.store');
-Route::get('/admin/jabatan/{id}', [App\Http\Controllers\Admin\JabatanController::class, 'edit'])->name('jabatan.edit');
-Route::DELETE('/admin/jabatan/{id}', [App\Http\Controllers\Admin\JabatanController::class, 'destroy'])->name('jabatan.destroy');
 
     Route::get('/admin/profile', function(Request $request) {
         return view('admin.user.profile')->with('user', auth()->user());
     });
     Route::PUT('/admin/profile', [App\Http\Controllers\Admin\UserController::class, 'updateProfile'])->name('profil.update');
+    Route::get('notifications/get', 'App\Http\Controllers\Admin\NotificationController@getNotificationsData')->name('notifications.get');
+
 });

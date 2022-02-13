@@ -10,7 +10,7 @@
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2 class="hero-title">Partai Nas<span>Dem</span></h2>
-              <h3 class="hero-title">Restorasi Indonesia</h3>
+              <h2 class="hero-title">Restorasi Indonesia</h2>
               <!-- <div class="text-center"><a href="" class="btn-get-started">Read More</a></div> -->
             </div>
           </div>
@@ -20,7 +20,7 @@
         <div class="carousel-item" style="background-image: url(web/img/slide/slide-2.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2>NasDem Restorasi Perubahan Indonesia</h2>
+              <h2>NasDem </h2><h2>Gerakan Perubahan</h2>
               <!-- <div class="text-center"><a href="" class="btn-get-started">Read More</a></div> -->
             </div>
           </div>

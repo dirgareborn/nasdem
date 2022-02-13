@@ -40,7 +40,7 @@ class PengurusController extends Controller
     public function create(Pengurus $pengurus)
     {
         $page_title       = 'Tambah';
-        $page_description = 'Tambah Data Pegawai';
+        $page_description = 'Tambah Data Pengurus';
         $jabatans = Jabatan::pluck('nama_jabatan', 'id');
         return view('admin.pengurus.create', compact('page_title', 'jabatans', 'page_description'));
     }
@@ -136,9 +136,9 @@ class PengurusController extends Controller
             $pengurus = Pengurus::findOrFail($id);
             Storage::delete('public/pengurus/foto/' . $pengurus->foto);
             $pengurus->delete();
-            return redirect()->route('admin.pengurus')->with('success', 'Pengurus sukses dihapus!');
+            return redirect()->back()->with('success', 'Pengurus sukses dihapus!');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect()->route('admin.pengurus')->with('error', 'Pengurus gagal dihapus!');
+            return redirect()->back()->with('error', 'Pengurus gagal dihapus!');
         }
     }
 }

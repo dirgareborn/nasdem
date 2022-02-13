@@ -21,6 +21,9 @@
                 <option value="{{ $jabatan->id}}">{{$jabatan->nama_jabatan}}</option>
                 @endforeach
             </x-adminlte-select>
+            <x-adminlte-input name="sort" label="Urutan Tampil" placeholder="urutan tampil" type="number"
+              fgroup-class="col-md-12 col-12" min=1 max=30>
+            </x-adminlte-input>
         </div>
     </div>
     <div class="modal-footer">

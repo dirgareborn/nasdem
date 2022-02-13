@@ -3,16 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="msapplication-TileColor" content="#ffc40d">
-  <meta name="theme-color" content="#1a2035">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Nasdem">
+  <meta name="apple-mobile-web-app-title" content="Nasdem">
+  <meta name="theme-color" content="#1f2466">
+  <meta name="msapplication-navbutton-color" content="#1f2466">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>{{ $page_title }} {{ config('app.name', 'DPD Partai NasDem Gowa') }}</title>
-  <meta content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Gowa'}}" name="description">
-  <meta content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Gowa'}}" name="keywords">
+  <title>{{ $page_title }} {{ config('app.name', 'DPD Partai NasDem Jeneponto') }}</title>
+  <meta content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Jeneponto'}}" name="description">
+  <meta content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Jeneponto'}}" name="keywords">
   <link rel="canonical" href="{{ Request::url() }}">
   <meta itemprop="name" content="{{ $page_title ?? '' }}">
-  <meta itemprop="description" content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Gowa' }}.">
+  <meta itemprop="description" content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Jeneponto' }}.">
   <meta itemprop="image" content="{{ is_img($page_image ?? '') }}">
 
   <meta property="og:locale" content="id_ID">
@@ -20,18 +26,18 @@
   <meta property="og:url" content="{{ Request::url() }}">
   <meta property="og:site_name" content="{{ \URL::to('') }}">
   <meta property="og:title" content="{{ $page_title ?? '' }}">
-  <meta property="og:description" content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Gowa' }}. ">
+  <meta property="og:description" content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Jeneponto' }}. ">
   <meta property="og:image" content="{{ is_logo($page_image ?? '') }}?auto=format&amp;fit=max&amp;w=1200">
   <meta property="og:image:alt" content="{{ is_logo($page_image ?? '') }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ $page_title ?? '' }}">
-  <meta name="twitter:description" content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Gowa' }}. ">
+  <meta name="twitter:description" content="{{ $page_description ?? 'Website Resmi DPD Partai NasDem Jeneponto' }}. ">
   <meta name="twitter:image" content="{{ is_logo($page_image ?? '') }}?auto=format&amp;fit=max&amp;w=1200">
   <link rel="alternate" href="/feed.xml" type="application/atom+xml" data-title="{{ Request::url() }}">
   <meta name="facebook-domain-verification" content="w5e39xmuhdt35pjpezg5pkif7f501x" />
   <link rel="icon" type="image/png" href="{{ is_logo($konfigurasi->logo) }}"/>
   <link rel="mask-icon" href="{{ is_logo($konfigurasi->logo) }}" color="#5bbad5">
-  <link rel="manifest" href="{{ asset('favicons/manifest.json') }}" />
+  <link rel="manifest" href="{{ asset('/manifest.json') }}" />
   
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -51,5 +57,16 @@
 @yield('js')
 @stack('js')
 <!-- @include('web.assets._toastr') -->
+<script>
+if (!navigator.serviceWorker.controller) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {                
+      console.log('Service worker registered for the following scope: ', registration.scope);
+    }, function(err) {
+      console.error('Fail to register service worker', err);
+    });
+  });
+}
+</script>
 </body>
 </html>

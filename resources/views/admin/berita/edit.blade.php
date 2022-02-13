@@ -67,4 +67,7 @@
     </div>
 </div>
 @section('plugins.Summernote', true)
+@section('plugins.Select2', true)
+@section('plugins.tagsinput', true)
+@section('plugins.toast', true)
 @stop

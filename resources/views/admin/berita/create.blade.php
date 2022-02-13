@@ -26,7 +26,7 @@
                 <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                            <x-adminlte-input name="title" id="title" label="Judul Berita" placeholder="placeholder" fgroup-class="col-md-12 col-12" disable-feedback/>
+                            <x-adminlte-input name="title" id="title" label="Judul Berita" placeholder="placeholder" fgroup-class="col-md-12 col-12"/>
                             <x-adminlte-input-file name="image" id="image" label="Gambar" fgroup-class="col-md-6 col-6"/>
                             <x-adminlte-select2 label="Status" name="is_active" fgroup-class="col-md-6 col-6">
                                 <option value="1">Aktif</option>
@@ -83,6 +83,7 @@
 @section('plugins.Summernote', true)
 @section('plugins.Select2', true)
 @section('plugins.tagsinput', true)
+@section('plugins.toast', true)
 @stop
 @push('css')
 <style type="text/css">

@@ -1,7 +1,6 @@
-
 <!-- Modal -->
-<div class="modal fade" id="indexJabatan" tabindex="-1" role="dialog" aria-labelledby="indexJabatanLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="indexJabatan" tabindex="-1"  role="dialog" aria-labelledby="indexJabatanLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="indexJabatanLabel">Jabatan Pengurus</h5>
@@ -11,22 +10,22 @@
       </div>
       <div class="modal-body">
         <div class="row">
-            <table class="table table-bordered table-responsive-lg table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Jabatan</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
+        @php
+                $heads = [
+                    ['label' => 'No', 'width' => 5],
+                    ['label' => 'Nama Jabatan', 'width'  => 80],
+                    ['label' => 'Aksi', 'width' => 5],
+                ];
+                @endphp
+        <x-adminlte-datatable id="table1" :heads="$heads" striped hoverable bordered with-buttons compressed>
                     @foreach ($jabatans as $key => $jabatan)
                         <tr>
                             <td scope="row">{{ $key + 1 }}</td>
                             <td>{{ $jabatan->nama_jabatan }}</td>
                             <td>
+                            <div class="btn-group">
                                 <form action="{{ route('jabatan.destroy', $jabatan->id) }}" method="POST">
-                                    <a class="text-secondary" data-toggle="modal" id="mediumButton" data-target="#mediumModal"
+                                    <a class="text-secondary editButton" 
                                         data-attr="{{ route('jabatan.edit', $jabatan->id) }}">
                                         <i class="fas fa-edit text-gray-300"></i>
                                     </a>
@@ -34,14 +33,14 @@
                                     @method('DELETE')
 
                                     <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                                        <i class="fas fa-trash fa-lg text-danger"></i>
+                                        <i class="fas fa-trash text-danger"></i>
                                     </button>
                                 </form>
+</div>
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
+                </x-adminlte-datatable>
         </div>
       </div>
       <div class="modal-footer">
@@ -53,37 +52,32 @@
 </div>
 
 @include('admin.jabatan.edit')
-@section('js')
-    <script> $('#indexJabatan').on('shown.bs.modal', function () {
+@push('js')
+    <script> 
+    $('#indexJabatan').on('shown.bs.modal', function () {
     $('#title').trigger('focus')
     }); 
     
-    // display a modal (medium modal)
-    $(document).on('click', '#mediumButton', function(event) {
-            event.preventDefault();
-            let href = $(this).attr('data-attr');
-            $.ajax({
-                url: href,
-                beforeSend: function() {
-                    $('#loader').show();
-                },
-                // return the result
-                success: function(result) {
-                    $('#mediumModal').modal("show");
-                    $('#mediumBody').html(result).show();
-                },
-                complete: function() {
-                    $('#loader').hide();
-                },
-                error: function(jqXHR, testStatus, error) {
-                    console.log(error);
-                    alert("Page " + href + " cannot open. Error:" + error);
-                    $('#loader').hide();
-                },
-                timeout: 8000
-            });
+    $(document).on('click', '.editButton', function(event) {
+      event.preventDefault();
+      var id = $(this).data('id');  
+      var url = $(this).attr('data-attr');
+      $.ajax({
+        url: url,
+        type: "GET",
+        data: { id: id },
+        dataType: "JSON",
+        success: function(data) {
+          console.log(data);
+            $('#form-edit').attr('action', url);
+            $('#id2').val(data.data.id);
+            $('#nama_jabatan2').val(data.data.nama_jabatan);
+            $('#parent_id2').val(data.data.parent_id);
+            $('#sort2').val(data.data.sort);
             $("#indexJabatan").modal('hide');
-        });
-   
+            $('#editModal').modal('show');
+                }
+            });
+          });
     </script>
-@stop
+@endpush

@@ -57,6 +57,6 @@
             <x-adminlte-input name="nomor_registrasi" id="nomor_registrasi" label="Nomor Registrasi" placeholder="Nomor Registrasi" fgroup-class="col-md-6 col-6"/>
         </div>
         <x-adminlte-button class="btn-flat" type="reset" label="Reset" theme="outline-danger" icon="fas  fa-trash"/>
-            <x-adminlte-button class="btn-flat" type="submit" label="Simpan" theme="success" icon="fas  fa-save"/>
+        <x-adminlte-button class="btn-flat" type="submit" label="Simpan" theme="success" icon="fas  fa-save"/>
 </form>
 @section('plugins.DateRangePicker', true)

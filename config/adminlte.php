@@ -233,7 +233,6 @@ return [
         ],
         [
             'type'         => 'fullscreen-widget',
-            // 'type'         => 'darkmode-widget',
             'topnav_right' => true,
         ],
         [
@@ -264,6 +263,11 @@ return [
         ],
         ['header' => 'BERITA & KEGIATAN'],
         [
+            'text' => 'Kategori',
+            'url'  => 'admin/kategori',
+            'icon' => 'fas fa-fw fa-tags',
+        ],
+        [
             'text' => 'Berita',
             'url'  => 'admin/berita',
             'icon' => 'fas fa-fw fa-newspaper',
@@ -279,38 +283,19 @@ return [
             'url'  => 'admin/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
-        // ['header' => 'labels'],
-        // [
-        //     'text'       => 'important',
-        //     'icon_color' => 'red',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'text'       => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url'        => '#',
-        // ],
-        // [
-        //     'type'         => 'navbar-notification',
-        //     'id'           => 'my-notification',      // An ID attribute (required).
-        //     'icon'         => 'fas fa-bell',          // A font awesome icon (required).
-        //     'icon_color'   => 'warning',              // The initial icon color (optional).
-        //     'label'        => 0,                      // The initial label for the badge (optional).
-        //     'label_color'  => 'danger',               // The initial badge color (optional).
-        //     'url'          => 'notifications/show',   // The url to access all notifications/elements (required).
-        //     'topnav_right' => true,                   // Or "topnav => true" to place on the left (required).
-        //     'dropdown_mode'   => true,                // Enables the dropdown mode (optional).
-        //     'dropdown_flabel' => 'All notifications', // The label for the dropdown footer link (optional).
-        //     'update_cfg'   => [
-        //         'url' => 'notifications/get',         // The url to periodically fetch new data (optional).
-        //         'period' => 30,                       // The update period for get new data (in seconds, optional).
-        //     ],
-        // ]
+        [
+            'type'         => 'navbar-notification',
+            'id'           => 'my-notification',
+            'icon'         => 'fas fa-bell',
+            'url'          => 'notifications/show',
+            'topnav_right' => true,
+            'dropdown_mode'   => true,
+            'dropdown_flabel' => 'All notifications',
+            'update_cfg'   => [
+                'url' => 'notifications/get',
+                'period' => 30,
+            ],
+        ]
     ],
 
     /*
@@ -349,7 +334,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -373,13 +358,13 @@ return [
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => true,
+                    'asset' => false,
                     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css',
                     // 'location' => '/vendor/dg-plugins/bootstrap-tags-input/bootstrap-tagsinput.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => true,
+                    'asset' => false,
                     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js',
                     // 'location' => '/vendor/dg-plugins/bootstrap-tags-input/bootstrap-tagsinput.js',
                 ],
@@ -420,8 +405,13 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css',
                 ],
             ],
         ],
@@ -477,7 +467,7 @@ return [
             ],
         ],
         'DatatablesPlugins' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',

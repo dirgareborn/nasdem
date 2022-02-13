@@ -32,6 +32,10 @@
                     </div>
                 </article><!-- End blog entry -->
                 @empty
+                <p>Pencarian Kata Kunci <strong>{{ $q ?? ''}} </strong> {{ $beritas->count() }} Hasil </p>
+                <div class="text-center read-more">
+                        <a href="{{ url('/berita') }}">Kembali</a>
+                </div>
                 @endforelse
                 {{ $beritas->links('vendor.pagination.azalea-01') }}
             </div><!-- End blog entries list -->

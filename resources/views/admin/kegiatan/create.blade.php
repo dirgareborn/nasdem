@@ -26,10 +26,27 @@
                 <form action="{{ route('kegiatan.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <x-adminlte-input name="title" id="title" label="Nama Kegiatan" placeholder="placeholder" fgroup-class="col-md-12 col-12" disable-feedback/>
+                    <x-adminlte-input name="title" id="title" label="Nama Kegiatan" placeholder="placeholder" fgroup-class="col-md-12 col-12"/>
+                    <x-adminlte-select2 id="kategori_id" name="kategori_id" label="Kategori"
+                                     fgroup-class="col-md-6 col-6">
+                                    <x-slot name="prependSlot">
+                                        <div class="input-group-text bg-gradient-red">
+                                            <i class="fas fa-list"></i>
+                                        </div>
+                                    </x-slot>
+                                    @foreach ($categories as $cat)
+                                    <option value="{{ $cat->id }}">{{$cat->nama}}</option>
+                                    @endforeach
+                                </x-adminlte-select2>
                         <x-adminlte-input name="attendants" id="attendants" label="Yang Menghadiri" placeholder="Yang Menghadiri" fgroup-class="col-md-6 col-6"/>
-                        <x-adminlte-input-file name="image" id="image" label="Banner Kegiatan" fgroup-class="col-md-6 col-6"/>
-                        <x-adminlte-input name="location" id="location" label="Lokasi Kegiatan" placeholder="Lokasi Kegiatan" fgroup-class="col-md-12 col-12" disable-feedback/>
+                        <x-adminlte-input-file name="image" id="image" label="Banner Kegiatan" fgroup-class="col-md-6 col-6">
+                            <x-slot name="prependSlot">
+                                <div class="input-group-text bg-gradient-red">
+                                    <i class="fa fa-image"></i>
+                                </div>
+                            </x-slot>
+                            </x-adminlte-input-file>
+                        <x-adminlte-input name="location" id="location" label="Lokasi Kegiatan" placeholder="Lokasi Kegiatan" fgroup-class="col-md-6 col-6"/>
                         @php
                         $config = [
                             "singleDatePicker" => true,

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
-
+use Exception;
 class JabatanController extends Controller
 {
     public function index()
@@ -68,7 +68,8 @@ class JabatanController extends Controller
     {
         $Jabatan = $request->validate([
             'nama_jabatan' => 'required|max:50',
-            'parent_id' => 'nullable'
+            'parent_id' => 'nullable',
+            'sort' => 'required',
         ]);
 
         $Jabatan['parent_id'] = empty($Jabatan['parent_id']) ? 0 : $Jabatan['parent_id'];
@@ -95,12 +96,11 @@ class JabatanController extends Controller
      */
     public function edit($id)
     {
-        // $jabatan     = Jabatan::findOrFails($id);
-        $parent_jabatan = Jabatan::pluck('nama_jabatan', 'id');
-        $page_title       = 'Ubah';
-        $page_description = 'Ubah Data Jabatan';
-
-            return view('admin.jabatan.edit', compact('jabatan', 'page_title', 'parent_jabatan', 'page_description'));
+        $jabatan     = Jabatan::find($id);
+        return response()->json([
+            'status' => 'success',
+            'data' => $jabatan
+        ], 200);
     }
 
     /**
@@ -113,13 +113,24 @@ class JabatanController extends Controller
     {
         $Jabatan = $request->validate([
             'nama_jabatan'  => 'required|max:50',
-            'parent_id' => 'nullable',
+            'parent_id' => 'required',
+            'sort' => 'required',
         ]);
+        try{
 
-        $Jabatan['parent_id'] = empty($Jabatan['parent_id']) ? 0 : $Jabatan['parent_id'];
-        Jabatan::whereId($id)->update($Jabatan);
-
-        return redirect()->route('data.jabatan.index')->with('success', 'Data Jabatan Sukses Terupdate');
+            $Jabatan['parent_id'] = empty($Jabatan['parent_id']) ? 0 : $Jabatan['parent_id'];
+            Jabatan::whereId($id)->update($Jabatan);
+            
+        }catch(Exception $e){
+            return response()->json([
+                'status'    => 'success',
+                'message'   => 'Data Jabatan Gagal Terupdate',
+            ]);
+        }
+        return response()->json([
+            'status'    => 'error',
+            'message'   => 'Data Jabatan Sukses Terupdate',
+        ]);
     }
 
     /**

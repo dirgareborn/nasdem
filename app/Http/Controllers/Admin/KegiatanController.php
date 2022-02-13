@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\KegiatanRequest;
 use App\Models\Kegiatan;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,8 @@ class KegiatanController extends Controller
 
     public function create()
     {
-        return view('admin.kegiatan.create');
+        $categories = Kategori::whereSort('2')->orderby('nama', 'ASC')->get();
+        return view('admin.kegiatan.create', compact('categories'));
     }
 
     public function store(KegiatanRequest $request)

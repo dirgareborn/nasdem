@@ -43,7 +43,6 @@
                 <!-- End blog entries list -->
             </div>
             @include('web.partials.sidebar')
-            @include('web._beritaLainnya')
         </div>
     </div>
 </div>

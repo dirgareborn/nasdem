@@ -3,7 +3,7 @@
     <h3 class="sidebar-title">Search</h3>
     <div class="sidebar-item search-form">
     <form method="get" action="{{ url('/berita') }}">
-        <input type="text"  name="q" id="q" placeholder="Cari">
+        <input type="text"  name="q" id="q" placeholder="Cari {{ $q ?? '' }}">
         <button type="submit"><i class="bi bi-search"></i></button>
     </form>
     </div><!-- End sidebar search formn-->

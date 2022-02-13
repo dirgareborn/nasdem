@@ -30,21 +30,21 @@
             <!-- /.card-header -->
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6 col-6">
+                    <div class="col-md-3 col-6">
                     <x-adminlte-small-box title="{{ $data['berita'] }}" text="Berita" icon="fas fa-chart-bar"
-                    theme="info" url="{{ route('berita.index') }}" url-text="Lihat Semua Berita"/>
+                    theme="info" url="{{ route('berita.index') }}" url-text="Lihat Detail"/>
                     </div>
-                    <div class="col-md-6 col-6">
-                    <x-adminlte-small-box title="1000" text="Pengunjung Website" icon="fas fa-eye text-dark"
-                    theme="teal" url="#" url-text="Lihat Detail"/>
-                    </div>
-                    <div class="col-md-6 col-6">
-                    <x-adminlte-small-box title="{{ $data['pengurus'] }}" text="Pengurus DPD" icon="fas fa-user-plus text-teal"
-                    theme="primary" url="{{ route('pengurus.index') }}" url-text="Lihat Semua Pengurus"/>
-                    </div>
-                    <div class="col-md-6 col-6">
-                    <x-adminlte-small-box title="{{ $data['kegiatan'] }}" text="Kegiatan" icon="fas fa-medal text-dark"
+                    <div class="col-md-3 col-6">
+                    <x-adminlte-small-box title="{{ $data['kegiatan'] }}" text="Kegiatan" icon="fas fa-medal"
                     theme="danger" url="{{ route('kegiatan.index') }}" url-text="Lihat Detail" id="sbUpdatable"/>
+                    </div>
+                    <div class="col-md-3 col-6">
+                    <x-adminlte-small-box title="1000" text="Visitor" icon="fas fa-eye"
+                    theme="purple" url="#" url-text="Lihat Detail"/>
+                    </div>
+                    <div class="col-md-3 col-6">
+                    <x-adminlte-small-box title="{{ $data['pengurus'] }}" text="Pengurus DPD" icon="fas fa-user-plus"
+                    theme="warning" url="{{ route('pengurus.index') }}" url-text="Lihat Detail"/>
                     </div>
                    </div>
             </div>
@@ -67,7 +67,7 @@
             // Update data.
             let rep = Math.floor(1000 * Math.random());
             let idx = rep < 100 ? 0 : (rep > 500 ? 2 : 1);
-            let text = 'Reputation - ' + ['Basic', 'Silver', 'Gold'][idx];
+            let text = 'Kegiatan - ' + ['selesai', 'Berlangsung', 'Soon'][idx];
             let icon = 'fas fa-medal ' + ['text-primary', 'text-light', 'text-warning'][idx];
             let url = ['url1', 'url2', 'url3'][idx];
 

@@ -52,9 +52,9 @@ class WebController extends Controller
             if ($q) {
                 $query->where('title', 'like', '%'.$q.'%');
             }
-        })->latest()->paginate(5);
+        })->latest()->paginate(12);
         // $beritas = Berita::with('tagged','user')->Active()->latest()->paginate(5);
-        return view('web.berita', compact('beritas','page_title', 'page_description'));
+        return view('web.index_berita', compact('q','beritas','page_title', 'page_description'));
     }
   
     public function getByCategory(Kategori $kategori, $slug)

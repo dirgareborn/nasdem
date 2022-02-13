@@ -27,7 +27,7 @@ trait KategoriTrait {
 
     public function serviceProviders() {
         $sr = User::whereHas('roles', function ($query) {
-                           $query->where('name','service_provider');
+                            $query->where('name','service_provider');
                         })->get();
         return $sr;
     } 

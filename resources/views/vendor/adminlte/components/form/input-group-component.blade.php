@@ -26,10 +26,10 @@
     </div>
 
     {{-- Error feedback --}}
-    @if($isInvalid() && ! isset($disableFeedback))
-        <span class="invalid-feedback d-block" role="alert">
-            <strong>{{ $errors->first($errorKey) }}</strong>
-        </span>
+    @if($errors->has($errorKey) && ! isset($disableFeedback))
+    <span class="invalid-feedback d-block" role="alert">
+        <strong>{{ $errors->first($errorKey) }}</strong>
+    </span>
     @endif
 
 </div>

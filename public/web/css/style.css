@@ -4,6 +4,14 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+/*--------------------------------------------------------------
+# Service Worker
+--------------------------------------------------------------*/
+@media all and (display-mode: standalone) {
+  body {
+    background-color: whitesmoke;
+  }
+}
 
 /*--------------------------------------------------------------
 # General
@@ -180,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
-  border-top: 2px solid #21c1ee;
+  /* border-top: 2px solid #21c1ee; */
 }
 .navbar .dropdown ul li {
   min-width: 200px;
@@ -928,6 +936,11 @@ section {
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
+.about-us .t-special p{
+  font-family: TuesdayNight; 
+  font-size: 36pt;
+  color:white;
+}
 .about-us .content h2 {
   font-weight: 700;
   font-size: 42px;
@@ -1444,8 +1457,17 @@ section {
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
+
 .blog {
   padding: 40px 0 20px 0;
+}
+.blog .box{
+  padding: 20px;
+  background: #FBFBFB;
+  text-align: center;
+  /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12); */
+  position: relative;
+  overflow: hidden;
 }
 .blog .entry {
   padding: 30px;

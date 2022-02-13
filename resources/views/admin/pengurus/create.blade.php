@@ -29,3 +29,38 @@
     </div>
 </div>
 @stop
+@section('plugins.Sweetalert2', true)
+@push('js')
+<script>
+    $(document).ready(function() {
+
+        var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        function inputFieldsAreFilled() {
+            // TODO: Check if all fields are filled and return true or false. If you detect
+            // some field is not filled you can return false, otherwise you return true.
+        }
+
+        $('#btnOpenSaltC').click(function() {            
+
+            /* Check if all input fields are filled */
+            if (inputFieldsAreFilled()) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'All fields are filled.'
+               });
+            } else {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'You need to fill all required fields.'
+                });    
+            }
+        });
+    })
+</script>
+@endpush

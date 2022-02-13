@@ -57,8 +57,9 @@
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{ route('kegiatan.edit', $row['id'])}}" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>
-                                    <a href="{{ route('kegiatan.show', $row['id'])}}" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details"><i class="fa fa-lg fa-fw fa-eye"></i></a>                                    </a>
+                                    <a href="{{ route('kegiatan.edit', $row['id'])}}" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ route('kegiatan.show', $row['id'])}}" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details"><i class="fa fa-fw fa-eye"></i></a>                                    </a>
+                                    <x-adminlte-button onclick="deleteConfirmation({{$row['id']}})" class="btn-default btn-xs text-danger mx-1 shadow" type="submit" label="" theme="danger" icon="fas  fa-trash"/>
                                 </div>
                             </td>
                         </tr>
@@ -70,4 +71,8 @@
 </div>
 @section('plugins.Datatables', true)
 @section('plugins.DatatablesPlugin', true)
+@section('plugins.Sweetalert2', true)
 @stop
+@push('js')
+@include('admin.assets._swalDeleteConfirm')
+@endpush

@@ -2,7 +2,7 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
         <a href="{{URL('/')}}" class="logo me-2"><img src="{{asset('img/logo.png') }}" alt="" class="img-fluid"></a>
-      <h1 class="logo me-auto hidden-xs"><a href="{{URL('/')}}">Partai <span>Nas</span><strong class="text-danger">Dem</strong></a></h1>
+      <h2 class="logo me-auto d-xs-none d-sm-block"><a href="{{URL('/')}}">Partai <span>Nas</span><strong class="text-danger">Dem</strong></a></h2>
       <!-- Uncomment below if you prefer to use an image logo -->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -15,8 +15,14 @@
             </ul>
           </li>
 
-          <li><a href="{{asset('visi-misi') }}">Visi Misi</a></li>
-          <li><a href="{{asset('berita') }}">Berita</a></li>
+          <li><a href="{{asset('visi-misi') }}">Visi & Misi</a></li>
+          <li class="dropdown"><a href="{{asset('berita') }}">Berita</a>
+          <ul>
+              @foreach ($category as $kategori)
+              <li><a href="/kategori/{{ $kategori->slug }}">{{ $kategori->nama }} </a></li>
+              @endforeach
+            </ul>
+          </li>
           <li><a href="{{asset('kegiatan') }}">Kegiatan</a></li>
           <li><a href="{{asset('kontak-kami') }}">Kontak</a></li>
 
