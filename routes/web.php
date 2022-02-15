@@ -21,12 +21,13 @@ Route::get('/visi-misi', [App\Http\Controllers\WebController::class, 'VisiMisi']
 
 
 Route::get('/berita', [App\Http\Controllers\WebController::class, 'berita'])->name('berita');
-Route::get('/tag/{slug}', [App\Http\Controllers\WebController::class, 'getByTag'])->name('berita.tag');
-Route::get('/kategori/{slug}', [App\Http\Controllers\WebController::class, 'getByCategory'])->name('berita.kategori');
 Route::get('/berita/{slug}', [App\Http\Controllers\WebController::class, 'detailBerita'])->name('detailBerita');
+Route::get('/kategori/{slug}', [App\Http\Controllers\WebController::class, 'getByCategory'])->name('berita.kategori');
+Route::get('/tag/{slug}', [App\Http\Controllers\WebController::class, 'getByTag'])->name('berita.tag');
 
 
 Route::get('/kegiatan', [App\Http\Controllers\WebController::class, 'kegiatan'])->name('kegiatan');
+Route::get('/kegiatan/{slug}', [App\Http\Controllers\WebController::class, 'detailKegiatan'])->name('detailKegiatan');
 
 
 Route::get('/kontak-kami', [App\Http\Controllers\WebController::class, 'kontak'])->name('kontak');

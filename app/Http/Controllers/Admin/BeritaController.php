@@ -34,65 +34,41 @@ class BeritaController extends Controller
         // dd($input);
         if($request->hasfile('image')) {
             $image = $request->file('image');
-            $input['image'] = time().'.'.$image->extension();
-         
-            $destinationPath = public_path('/thumbnail');
-            $img = Image::make($image->path());
-            $img->resize(100, 100, function ($constraint) {
+            $extension = $image->getClientOriginalExtension();
+            $filename = str_replace(' ','', time().'_'.$image->getClientOriginalName());
+            $thumb = \Image::make($image)->resize(80, 50,
+            function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$input['image']);
-       
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $input['image']);
-
-        //   \Storage::disk('spaces')->put('thumbs/'.$filename, (string)$thumb, 'public');
-        //   \Storage::disk('spaces')->put('uploads/'.$filename, (string)$normal, 'public');
-        //   \Storage::disk('spaces')->put('original/'.$filename, (string)$big, 'public');
-        //   \Storage::disk('spaces')->put('800x800/'.$filename, (string)$_800x800, 'public');
-        //   \Storage::disk('spaces')->put('400x400/'.$filename, (string)$_400x400, 'public');
-            // $cat->image_icon = $filename;
-            // $input['image'] = substr($path, 14) ;
-            // $input->image = $input['image'] ;
-            }
-
-        // dd($input);
-                
-                $tags = explode(",", $request->tags);
-                $berita = Berita::create($input);
-                $berita->tag($tags);
+            })->encode($extension);
+            $_350x250 = \Image::make($image)->resize(350, 250,
+            function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode($extension);
+            $normal = \Image::make($image)->resize(800, 500,
+            function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode($extension);
+            Storage::disk('public')->put('berita/'.$filename, (string) $normal->encode());
+            Storage::disk('public')->put('berita/thumb/'.$filename, (string) $thumb->encode());
+            Storage::disk('public')->put('berita/350x250/'.$filename, (string) $_350x250->encode());
+            $input['image'] = $filename;
+         }
+            
+            $tags = explode(",", $request->tags);
+            $berita = Berita::create($input);
+            $berita->tag($tags);
         } catch (\Exception $e) {
             return back()->withInput()->with('error', 'Simpan Berita gagal!');
         }
 
         return redirect()->route('berita.index')->with('success', 'Berita berhasil disimpan!');
     }
-    // public function store(BeritaRequest $request)
-    // {
-    
-    // try {
-                
-    //             $input = $request->all();
-    //             if ($request->hasFile('image')) {
-    //                 $file = $request->file('image');
-    //                 $path = Storage::putFile('public/berita', $file);
-                    
-    //                 $input['image'] = substr($path, 14) ;
-    //             }
-                
-    //             $tags = explode(",", $request->tags);
-    //             $berita = Berita::create($input);
-    //             $berita->tag($tags);
-    //     } catch (\Exception $e) {
-    //         return back()->withInput()->with('error', 'Simpan Berita gagal!');
-    //     }
-
-    //     return redirect()->route('berita.index')->with('success', 'Berita berhasil disimpan!');
-    // }
 
     public function edit($id)
     {
-        $berita = Berita::find($id);
-        return view('admin.berita.edit', compact('berita'));
+        $berita = Berita::whereSlug($id)->first();
+        $categories = Kategori::whereSort('1')->orderby('nama', 'ASC')->get();
+        return view('admin.berita.edit', compact('berita','categories'));
     }
   
 
@@ -103,12 +79,30 @@ class BeritaController extends Controller
             $input = $request->all();
 
             if ($request->hasFile('image')) {
-                $file = $request->file('image');
-                $path = Storage::putFile('public/berita', $file);
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $filename = str_replace(' ','', time().'_'.$image->getClientOriginalName());
+                $thumb = \Image::make($image)->resize(80, 50,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
+                $_350x250 = \Image::make($image)->resize(350, 250,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
+                $normal = \Image::make($image)->resize(800, 500,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
 
                 Storage::delete('public/berita/' . $berita->getOriginal('image'));
+                Storage::delete('public/berita/thumb/' . $berita->getOriginal('image'));
+                Storage::delete('public/berita/350x250/' . $berita->getOriginal('image'));
 
-                $input['image'] = substr($path, 14) ;
+                Storage::disk('public')->put('berita/'.$filename, (string) $normal->encode());
+                Storage::disk('public')->put('berita/thumb/'.$filename, (string) $thumb->encode());
+                Storage::disk('public')->put('berita/350x250/'.$filename, (string) $_350x250->encode());
+                $input['image'] = $filename;
             }
 
             $berita->update($input);
@@ -121,19 +115,23 @@ class BeritaController extends Controller
       
     public function show($id)
     {
-        $berita = Berita::find($id);
+        $berita = Berita::whereSlug($id)->first();
+
         return view('admin.berita.show', compact('berita'));
     }
-    public function destroy(Berita $berita)
+    public function destroy($id)
     {
         try {
+            $berita = Berita::findOrFail($id);
             if ($berita->delete()) {
-                Storage::delete('public/berita/' . $artikel->getOriginal('image'));
+                Storage::delete('public/berita/' . $berita->getOriginal('image'));
+                Storage::delete('public/berita/thumb/' . $berita->getOriginal('image'));
+                Storage::delete('public/berita/350x250/' . $berita->getOriginal('image'));
             }
         } catch (\Exception $e) {
-            return redirect()->route('berita.index')->with('error', 'Artikel gagal dihapus!');
+            return redirect()->route('berita.index')->with('error', 'Berita gagal dihapus!');
         }
 
-        return redirect()->route('berita.index')->with('success', 'Artikel sukses dihapus!');
+        return redirect()->route('berita.index')->with('success', 'Berita sukses dihapus!');
     }
 }

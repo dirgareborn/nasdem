@@ -44,7 +44,7 @@ class KategoriController extends Controller
             ], 200);
         }else{
             return response()->json([
-                'status' => 'error',
+                'status' => true,
                 'message' => 'Nama Kategori Sudah Ada'
             ], 422);
         }

@@ -27,7 +27,7 @@
     <div class="sidebar-item recent-posts">
     @forelse($beritas as $berita)
     <div class="post-item clearfix">
-        <img src="{{is_img($berita->image) }}" alt="{{ $berita->title }}">
+        <img src="{{is_img_thumb($berita->image) }}" alt="{{ $berita->title }}">
         <h4><a href="/berita/{{ $berita->slug }}">{{ Str::limit($berita->title, 30) }}</a></h4>
         <time datetime="2020-01-01">{{ format_date($berita->created_at)}}</time>
     </div>

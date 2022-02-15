@@ -105,9 +105,9 @@ $("#form-edit").submit( function(e) {
                     icon: 'success',
                 });
             },
-        error: function (response) {
+        error: function (jqXHR, textStatus, errorThrown) {
             Toast.fire({
-                text: response.message,
+                text: errorThrown,
                 icon: 'error',
             });
         }

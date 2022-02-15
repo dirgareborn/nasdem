@@ -1,5 +1,5 @@
 @extends('web.layouts.app')
-@section('title','Berita')
+@section('title', 'Berita')
 @section('content')
 @include('web.partials.breadcrumbs')
 <!-- ======= Blog Section ======= -->
@@ -10,10 +10,10 @@
                
                 <article class="entry">
                     <div class="entry-img">
-                    <img src="{{is_img($berita->image)}}" alt="{{ $berita->title }}" class="img-fluid">
+                    <img src="{{is_img($berita->image)}}" alt="{{ $berita->title }}" class="img-fluid" style="max-height:450px; width:100%;">
                     </div>
-                    <h2 class="entry-title">{{ $berita->title }}</a>
-                    </h2>
+                    <h3 class="entry-title">{{ $berita->title }}</a>
+                    </h3>
                     <div class="entry-meta">
                     <ul>
                         <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ route('detailBerita', $berita->slug) }}">Administrator</a></li>

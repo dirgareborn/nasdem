@@ -1,5 +1,5 @@
 @extends('web.layouts.app')
-@section('title','DPD Partai NasDem Gowa')
+@section('title', $konfigurasi->website_title ?? '')
 @section('content')
     @include('web.partials.breadcrumbs')
  <!-- ======= Our Team Section ======= -->
@@ -8,7 +8,7 @@
           <div class="row">
               <div class="col-lg-8 entries">
                 <div class="section-title" data-aos="fade-up">
-                <h3><strong>Susunan Kepengurusan DPD Partai NasDem Gowa</strong></h3>
+                <h3><strong>Susunan Kepengurusan {{ $konfigurasi->website_title ?? ''}}</strong></h3>
                 </div>
                 <div class="row">
                     @forelse($pengurus as $pengurus)

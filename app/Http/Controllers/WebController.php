@@ -10,7 +10,7 @@ use App\Models\Konfigurasi;
 use App\Models\Jabatan;
 use App\Models\Kategori;
 use App\Models\User;
-
+use DB;
 class WebController extends Controller
 {
     public function beranda(){
@@ -48,7 +48,7 @@ class WebController extends Controller
         $page_description = 'Halaman Berita';
 
         $q = $request->get('q');
-        $beritas = Berita::with('tagged','user')->Active()->where(function ($query) use ($q) {
+        $beritas = Berita::with('kategori','tagged','user')->Active()->where(function ($query) use ($q) {
             if ($q) {
                 $query->where('title', 'like', '%'.$q.'%');
             }
@@ -92,16 +92,18 @@ class WebController extends Controller
     {
         $page_title = 'Kegiatan';
         $page_description = 'Halaman Kegiatan';
-        $kegiatan = Kegiatan::latest()->paginate(10);
-        return view('web.kegiatan', compact('kegiatan','page_title', 'page_description'));
+        $kegiatans = Kegiatan::with('kategori')->latest()->paginate(10);
+        $category = Kategori::with('kegiatan','kegiatanCount')->sort(2)->get();
+        return view('web.kegiatan', compact('category','kegiatans','page_title', 'page_description'));
     }
 
     public function detailKegiatan($slug)
     {
-        $kegiatan = Kegiatan::where('slug', $slug)->first();
+        $kegiatan = Kegiatan::where('slug', $slug)->first()->load('kategori');
         $page_title = $kegiatan->title;
         $page_description = $kegiatan->description;
-        return view('web.detail-kegiatan', compact('kegiatan','page_title', 'page_description'));
+        $page_image = $kegiatan->image;
+        return view('web._detailKegiatan', compact('kegiatan','page_title', 'page_description'));
     }
 
     public function pengurus()

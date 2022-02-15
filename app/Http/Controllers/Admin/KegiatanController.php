@@ -29,10 +29,25 @@ class KegiatanController extends Controller
         try {
             $input = $request->all();
             if ($request->hasFile('image')) {
-                $file = $request->file('image');
-                $path = Storage::putFile('public/kegiatan', $file);
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $filename = str_replace(' ','', time().'_'.$image->getClientOriginalName());
+                $thumb = \Image::make($image)->resize(80, 50,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
+                $_350x250 = \Image::make($image)->resize(350, 250,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
+                $normal = \Image::make($image)->resize(800, 500,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
 
-                $input['image'] = substr($path, 16) ;
+                Storage::disk('public')->put('kegiatan/'.$filename, (string) $normal->encode());
+                Storage::disk('public')->put('kegiatan/thumb/'.$filename, (string) $thumb->encode());
+                Storage::disk('public')->put('kegiatan/350x250/'.$filename, (string) $_350x250->encode());
             }
 
             Kegiatan::create($input);
@@ -50,22 +65,39 @@ class KegiatanController extends Controller
     }
   
 
-    public function update(KegiatanRequest $request,$id)
+    public function update(KegiatanRequest $request, $id)
     {
         try {
             $kegiatan = Kegiatan::find($id);
             $input = $request->all();
 
             if ($request->hasFile('image')) {
-                $file = $request->file('image');
-                $path = Storage::putFile('public/kegiatan', $file);
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $filename = str_replace(' ','', time().'_'.$image->getClientOriginalName());
+                $thumb = \Image::make($image)->resize(80, 50,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
+                $_350x250 = \Image::make($image)->resize(350, 250,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
+                $normal = \Image::make($image)->resize(800, 500,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode($extension);
 
                 Storage::delete('public/kegiatan/' . $kegiatan->getOriginal('image'));
+                Storage::delete('public/kegiatan/thumb/' . $kegiatan->getOriginal('image'));
+                Storage::delete('public/kegiatan/350x250/' . $kegiatan->getOriginal('image'));
 
-                $input['image'] = substr($path, 16) ;
+                Storage::disk('public')->put('kegiatan/'.$filename, (string) $normal->encode());
+                Storage::disk('public')->put('kegiatan/thumb/'.$filename, (string) $thumb->encode());
+                Storage::disk('public')->put('kegiatan/350x250/'.$filename, (string) $_350x250->encode());
+                $input['image'] = $filename;
             }
 
-            // dd($input);
             $kegiatan->update($input);
         } catch (\Exception $e) {
             return back()->withInput()->with('error', 'Kegiatan gagal diupdate!');
@@ -84,6 +116,8 @@ class KegiatanController extends Controller
         try {
             if ($kegiatan->delete()) {
                 Storage::delete('public/kegiatan/' . $kegiatan->getOriginal('image'));
+                Storage::delete('public/kegiatan/thumb/' . $kegiatan->getOriginal('image'));
+                Storage::delete('public/kegiatan/350x250/' . $kegiatan->getOriginal('image'));
             }
         } catch (\Exception $e) {
             return redirect()->route('kegiatan.index')->with('error', 'Kegiatan gagal dihapus!');

@@ -58,6 +58,21 @@
                                  {!! strip_tags($berita->description) !!}
                                  </textarea>
 
+                                 <x-adminlte-select2 id="kategori_id" name="kategori_id" label="Kategori"
+                                 fgroup-class="col-md-6 col-6" :config="$config">
+                                    <x-slot name="prependSlot">
+                                        <div class="input-group-text bg-gradient-red">
+                                            <i class="fas fa-list"></i>
+                                        </div>
+                                    </x-slot>
+                                    <x-slot name="appendSlot">
+                                        <x-adminlte-button theme="outline-dark" label="Clear" icon="fas fa-lg fa-ban text-danger"/>
+                                    </x-slot>
+                                    @foreach ($categories as $cat)
+                                    <option value="{{ $cat->id }}">{{$cat->nama}}</option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                                <x-adminlte-input  data-role="tagsinput"  name="tags" id="tags" label="Tags" placeholder="typing....." fgroup-class="col-md-6 col-6"/>
                             </div>
                             <button type="button" class="btn btn-secondary">Batal</button>
                             <button type="submit" class="btn btn-primary">Simpan</button> 

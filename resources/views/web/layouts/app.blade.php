@@ -44,6 +44,7 @@
   @include('web.assets._icon')
   @include('web.assets._css')
     @yield('css')
+    @stack('css')
 </head>
 <body>
     @include('web.partials.navigation-menu')

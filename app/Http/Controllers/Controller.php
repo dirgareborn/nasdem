@@ -21,7 +21,7 @@ class Controller extends BaseController
         if(Route::currentRouteName() !== 'kegiatan'){
             $this->category = Kategori::Sort(1)->get()->load('beritas');
         }else{
-            $this->category = Kategori::Sort(2)->get()->load('beritas');
+            $this->category = Kategori::Sort(2)->get()->load('kegiatan');
         }
         $this->konfigurasi = Konfigurasi::first();
         View::share([

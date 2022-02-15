@@ -52,4 +52,15 @@ class Kategori extends Model
     {
         return $this->hasMany(Berita::class);
     }
+    public function kegiatan()
+    {
+        return $this->hasMany(Kegiatan::class);
+    }
+
+    public function kegiatanCount()
+    {
+        return $this->kegiatan()
+            ->selectRaw('kategori_id, count(*) as aggregate')
+            ->groupBy('kategori_id');
+    }
 }

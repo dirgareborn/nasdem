@@ -31,7 +31,7 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Link Terkait</h4>
             <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="http://gowakab.go.id/">Website Pemerintah Kab. Gowa</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="http://gowakab.go.id/">Website Pemerintah Kab. Jeneponto</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="https://nasdem.id">Website Partai NasDem DPP</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://digital.nasdem.id">NasDem Digital</a></li>
             </ul>
@@ -58,7 +58,7 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Partai NasDem DPD Gowa</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>{{ $konfigurasi->website_title ?? 'Partai NasDem'}}</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           Made with <i class="bx bx-heart"></i> in Makassar <a href="https://amaze.co.id/">{{ config('app.author')}}</a>

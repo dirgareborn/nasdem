@@ -31,6 +31,22 @@ function is_logo($url = '', $file = '/img/logo.png')
     return is_img($url, $file);
 }
 
+function is_img_thumb($url = null){
+ if(!$url){
+    return asset('img/no-image.jpg');
+ }else{
+     return asset('storage/berita/thumb/'.$url);
+ }
+}
+
+function is_img_350x250($url = null){
+ if(!$url){
+    return asset('img/no-image.jpg');
+ }else{
+     return asset('storage/berita/350x250/'.$url);
+ }
+}
+
 function is_img($url = null){
  if(!$url){
     return asset('img/no-image.jpg');
@@ -38,6 +54,23 @@ function is_img($url = null){
      return asset('storage/berita/'.$url);
  }
 }
+
+function is_event_thumb($url = null){
+ if(!$url){
+    return asset('img/no-image.jpg');
+ }else{
+     return asset('storage/kegiatan/thumb/'.$url);
+ }
+}
+
+function is_event_350x250($url = null){
+ if(!$url){
+    return asset('img/no-image.jpg');
+ }else{
+     return asset('storage/kegiatan/350x250/'.$url);
+ }
+}
+
 function is_img_event($url = null){
  if(!$url){
     return asset('img/no-image.jpg');
@@ -45,6 +78,7 @@ function is_img_event($url = null){
      return asset('storage/kegiatan/'.$url);
  }
 }
+
 function is_foto($url = null, $jenis_kelamin = 1){
 
     if($url){

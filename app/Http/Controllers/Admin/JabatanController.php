@@ -111,26 +111,25 @@ class JabatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Jabatan = $request->validate([
+        $validated = $request->validate([
             'nama_jabatan'  => 'required|max:50',
             'parent_id' => 'required',
             'sort' => 'required',
         ]);
-        try{
 
-            $Jabatan['parent_id'] = empty($Jabatan['parent_id']) ? 0 : $Jabatan['parent_id'];
-            Jabatan::whereId($id)->update($Jabatan);
-            
-        }catch(Exception $e){
+        $validated['parent_id'] = empty($validated['parent_id']) ? 0 : $validated['parent_id'];
+        $jawaban = Jabatan::whereId($id)->update($validated);
+        if($jawaban){
+            return response()->json([
+                'status'    => 'error',
+                'message'   => 'Data Jabatan Sukses Terupdate',
+            ], 200);
+        }else{
             return response()->json([
                 'status'    => 'success',
                 'message'   => 'Data Jabatan Gagal Terupdate',
-            ]);
+            ], 400);
         }
-        return response()->json([
-            'status'    => 'error',
-            'message'   => 'Data Jabatan Sukses Terupdate',
-        ]);
     }
 
     /**

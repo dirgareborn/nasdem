@@ -22,15 +22,13 @@
             success: function (response) {
                 Toast.fire({
                     text: response.message,
-                    icon: 'success',
-                    confirmButtonText: 'OK'
+                    icon: response.status,
                 });
             },
-            error: function (response) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 Toast.fire({
-                    text: 'Data Gagal disimpan',
+                    text: errorThrown,
                     icon: 'error',
-                    confirmButtonText: 'OK'
                 });
             }
         });

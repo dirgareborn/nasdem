@@ -23,7 +23,7 @@
                 <a href="{{ route('berita.index')}}" class="btn btn-flat btn-info" > <i class="fa fa-table"></i> Daftar Berita</a>
             </div>
             <div class="card-body">
-            <h3 class="card-title"> {{ $berita->title}}</h3> <br>
+            <h3 class="card-title"> {{ $berita->title }}</h3> <br>
             <img class="img-responsive pad" src="{{ is_img($berita->image) }}" alt="foto" width="100%">
             <p class="text-muted">{!! $berita->description !!}</p>
             <p class="text-muted">Status : {{ is_active($berita->is_active)}} | {{ format_date($berita->created_at )}}</p>
