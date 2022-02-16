@@ -1,7 +1,7 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-        <a href="{{URL('/')}}" class="logo me-2"><img src="{{asset('img/logo.png') }}" alt="" class="img-fluid"></a>
+        <a href="{{URL('/')}}" class="logo me-2"><img src="{{asset('img/logo.png') }}" alt="partai-nasdem" class="img-fluid"></a>
       <h2 class="logo me-auto d-xs-none d-sm-block"><a href="{{URL('/')}}">Partai <span>Nas</span><strong class="text-danger">Dem</strong></a></h2>
       <!-- Uncomment below if you prefer to use an image logo -->
 

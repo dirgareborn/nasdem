@@ -282,6 +282,21 @@ h1, h2, h3, h4, h5, h6 {
     list-style-type: none;
     
   }
+
+  #number-large {
+    content: "";
+    margin-top: -130px !important;
+    margin-bottom: -100px !important;
+  }
+  #number-large h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50pt !important;
+    font-weight: 300 !important;
+    color: #F7F7F7;
+    position: relative;
+  }
+  
+  
   
 }
 .navbar-mobile {

@@ -4,7 +4,7 @@
         <div class="row content">
           <div class="col-lg-7" data-aos="fade-right">
               <div class="embed-responsive embed-responsive-16by9">
-                <img width="500" height="400" src="{{ asset('web/img/bg/section-thumbnail.png')}}" class="attachment-full size-full" alt="" loading="lazy" sizes="(max-width: 594px) 100vw, 594px" />	
+                <img width="500" height="400" src="{{ asset('web/img/bg/thumb-youtube.jpg')}}" class="attachment-full size-full" alt="" loading="lazy" sizes="(max-width: 594px) 100vw, 594px" />	
                     <a  href="#myModal" class="btn-youtube" data-toggle="modal" data-target="#myModal">
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                       viewBox="0 0 83 83" enable-background="new 0 0 83 83" xml:space="preserve" width="83" height="83">
