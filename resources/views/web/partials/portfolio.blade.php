@@ -16,7 +16,7 @@
         <div class="row" data-aos="fade-up">
           <div class="col-lg-4 col-md-4 col-4">
                 <figure class="figure">
-                    <img src="{{asset('web/img/portfolio/visi-partai-nasdem.png') }}" class="img-fluid" alt="">
+                    <img data-src="{{asset('web/img/portfolio/visi-partai-nasdem.jpg') }}" class="lazyload img-fluid" alt="visi-partai-nasdem">
                     <figcaption class="figure-caption">
                         <h5 class="h5-border-bottom">Visi Partai NasDem</h5>
                     </figcaption>
@@ -24,7 +24,7 @@
           </div>
           <div class="col-lg-4 col-md-4 col-4">
           <figure class="figure">
-              <img src="{{asset('web/img/portfolio/misi-partai-nasdem.png') }}" class="img-fluid" alt="">
+              <img data-src="{{asset('web/img/portfolio/misi-partai-nasdem.jpg') }}" class="lazyload img-fluid" alt="isi-partai-nasdem">
               <figcaption class="figure-caption">
                   <h5 class="h5-border-bottom">Misi Partai NasDem</h5>
               </figcaption>
@@ -32,7 +32,7 @@
           </div>
           <div class="col-lg-4 col-md-4 col-4">
           <figure class="figure">
-              <img src="{{asset('web/img/portfolio/pengurus-partai-nasdem.png') }}" class="img-fluid" alt="">
+              <img data-src="{{asset('web/img/portfolio/pengurus-partai-nasdem.jpg') }}" class="lazyload img-fluid" alt="engurus-partai-nasdem">
               <figcaption class="figure-caption">
                   <h5 class="h5-border-bottom">Pengurus DPD Partai NasDem</h5>
               </figcaption>

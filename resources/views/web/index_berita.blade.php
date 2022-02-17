@@ -11,7 +11,7 @@
         </div>
         @forelse($beritas as $berita)
           <div class="col-lg-3 col-md-3 py-2">
-              <img src="{{is_img_350x250($berita->image) }}" alt="{{ $berita->title }}" style="max-height:200px; min-height:200px; width:100%;">
+              <img data-src="{{is_img_350x250($berita->image) }}" class="lazyload" alt="{{ $berita->title }}" style="max-height:200px; min-height:200px; width:100%;">
             <div class="box">
               <strong class="text-dark"> 
               <a class="text-dark" href="{{ route('detailBerita', $berita->slug) }}">{{ Str::limit($berita->title, 30) }}</a>  

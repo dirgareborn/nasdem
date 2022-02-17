@@ -53,7 +53,6 @@ class WebController extends Controller
                 $query->where('title', 'like', '%'.$q.'%');
             }
         })->latest()->paginate(12);
-        // $beritas = Berita::with('tagged','user')->Active()->latest()->paginate(5);
         return view('web.index_berita', compact('q','beritas','page_title', 'page_description'));
     }
   

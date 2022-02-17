@@ -4,7 +4,7 @@
 @include('web.partials.breadcrumbs')
 <!-- ======= event Section ======= -->
 <section id="event" class="event">
-    <img src="{{is_img_event($kegiatan->image)}}" alt="{{ $kegiatan->title }}" class="img-cover" style="max-height:420px; width:100%;">
+    <img data-src="{{is_img_event($kegiatan->image)}}" alt="{{ $kegiatan->title }}" class="lazyload img-cover" style="max-height:420px; width:100%;">
     <div class="event-title">
         <h3>{{ $kegiatan->title }}</h3>
     </div>

@@ -10,7 +10,7 @@
                 @forelse($beritas as $berita)
                 <article class="entry">
                     <div class="entry-img">
-                    <img src="{{is_img_350x250($berita->image)}}" alt="{{ $berita->title }}" class="img-fluid">
+                    <img data-src="{{is_img_350x250($berita->image)}}" alt="{{ $berita->title }}" class="lazyload img-fluid">
                     </div>
                     <h2 class="entry-title">
                     <a href="{{ route('detailBerita', $berita->slug) }}">{{ $berita->title }}</a>

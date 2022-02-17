@@ -68,6 +68,18 @@
                                  {!! strip_tags($cog->misi) !!}
                                  </textarea>
                             </div>
+                            <div class="form-group">
+                                <label> Google Maps </label>
+                                 <textarea class="form-control col-12 " name="map" id="map" cols="30" rows="10" fgroup-class="col-md-12 col-6">
+                                 {!! strip_tags($cog->map) !!}
+                                 </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label> Video </label>
+                                 <textarea class="form-control col-12 " name="video" id="video" cols="30" rows="10" fgroup-class="col-md-12 col-6">
+                                 {!! strip_tags($cog->video) !!}
+                                 </textarea>
+                            </div>
                                  <x-adminlte-input name="address" id="address" label="Alamat" value="{{ $cog->address }}" fgroup-class="col-md-8 col-6" disable-feedback/>
                                  <x-adminlte-input name="pos_code" id="pos_code" label="Kode Pos" value="{{ $cog->pos_code }}" fgroup-class="col-md-4 col-6" disable-feedback/>
                                  <x-adminlte-input name="telepon" id="telepon" label="Telepon" value="{{ $cog->telepon }}" fgroup-class="col-md-6 col-3" disable-feedback/>

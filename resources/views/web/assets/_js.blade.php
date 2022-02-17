@@ -10,3 +10,4 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('web/js/main.js') }}"></script>
+  <script src="{{ asset('web/js/lazysizes.min.js') }}"></script>

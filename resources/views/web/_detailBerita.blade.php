@@ -10,7 +10,7 @@
                
                 <article class="entry">
                     <div class="entry-img">
-                    <img src="{{is_img($berita->image)}}" alt="{{ $berita->title }}" class="img-fluid" style="max-height:450px; width:100%;">
+                    <img data-src="{{is_img($berita->image)}}" alt="{{ $berita->title }}" class="lazyload img-fluid" style="max-height:450px; width:100%;">
                     </div>
                     <h3 class="entry-title">{{ $berita->title }}</a>
                     </h3>

@@ -6,7 +6,7 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(web/img/slide/slide-1.jpg);">
+        <div class="carousel-item active lazyload" style="background-image: url(web/img/slide/slide-1.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2 class="hero-title">Partai Nas<span>Dem</span></h2>
@@ -17,7 +17,7 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(web/img/slide/slide-2.jpg);">
+        <div class="carousel-item  lazyload" style="background-image: url(web/img/slide/slide-2.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>NasDem </h2><h2>Gerakan Perubahan</h2>
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(web/img/slide/slide-3.jpg);">
+        <div class="carousel-item  lazyload" style="background-image: url(web/img/slide/slide-3.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>NasDem</h2>

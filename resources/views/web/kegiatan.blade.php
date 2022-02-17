@@ -21,7 +21,7 @@
         <div class="row portfolio-container" data-aos="fade-up">
         @forelse($kegiatans as $kegiatan)
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $kegiatan->kategori->slug }}">
-            <img src="{{ is_event_350x250($kegiatan->image) }}" class="img-fluid" alt="{{ $kegiatan->title }}">
+            <img data-src="{{ is_event_350x250($kegiatan->image) }}" class="lazyload img-fluid" alt="{{ $kegiatan->title }}">
             <div class="portfolio-info">
               <p>{{ $kegiatan->title }}</p>
               <a href="{{ is_img_event($kegiatan->image)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $kegiatan->title }}"><i class="bx bx-plus"></i></a>
