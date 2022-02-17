@@ -21,7 +21,7 @@ class KonfigurasiSeeder extends Seeder
             'id'                              => 1,
             'website_title'                   => null,
             'website_description'             => null,
-            'fb'                              => null,
+            'facebook'                              => null,
             'twitter'                         => null,
             'youtube'                         => null,
             'instagram'                       => null,
