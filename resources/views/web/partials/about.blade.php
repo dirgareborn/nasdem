@@ -39,7 +39,7 @@
           <h2 style="text-align:left;color:white;text-transform:none;">Surya Paloh, Bapak Restorasi Indonesia</h2>
         </div>
             <p style="text-align:justify;color:white;text-transform:none;">
-            Saya percaya proses Pendidikan politik yang sendiri yang sedang kita jalankan dapat memberikan hasil yang jauh lebih berarti. Saya percaya kalau memang kita konsisten terus dari waktu ke waktu. Berani menawarkan alternatif-alternatif pikiran. Yang tidak hanya terjebak pada langkah-langkah yg normatif. Tapi, berani melangkah jauh dari pendekatan2 yang normative, bolehlah kita mengharap dan bertekad menjadi partai ..nomor satu.”
+            Saya percaya proses Pendidikan politik yang sendiri yang sedang kita jalankan dapat memberikan hasil yang jauh lebih berarti. Saya percaya kalau memang kita konsisten terus dari waktu ke waktu. Berani menawarkan alternatif-alternatif pikiran. Yang tidak hanya terjebak pada langkah-langkah yg normatif. Tapi, berani melangkah jauh dari pendekatan2 yang normative, bolehlah kita mengharap dan bertekad menjadi partai nomor satu.”
             </p>
             <div class="t-special">
               <p>Surya Paloh</p>

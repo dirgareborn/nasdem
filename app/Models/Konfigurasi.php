@@ -23,7 +23,9 @@ class Konfigurasi extends Model
                 'pos_code',
                 'address',
                 'telepon',
-                'logo'
+                'logo',
+                'map',
+                'video',
     ];
 
 }

@@ -4,9 +4,8 @@
     @include('web.partials.breadcrumbs')
   <!-- ======= Contact Section ======= -->
   <div class="map-section">
-      <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.494004785603!2d119.39762931744386!3d-5.1847371999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d9eb282c2ab%3A0x2f32be3c001ee98e!2sPartai%20Nasdem!5e0!3m2!1sid!2sid!4v1643998700736!5m2!1sid!2sid" frameborder="0" allowfullscreen></iframe>
+      <iframe style="border:0; width: 100%; height: 350px;" src="{{ $konfigurasi->map ?? ''}}" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
     </div>
-
     <section id="contact" class="contact">
       <div class="container">
       @if(session('success'))
