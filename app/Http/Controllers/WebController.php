@@ -109,7 +109,8 @@ class WebController extends Controller
     {
         $page_title = 'Pengurus';
         $page_description = 'Halaman Pengurus';
-        $pengurus = Pengurus::latest()->paginate(10);
+        $pengurus = Pengurus::Active()->with('jabatan')->orderBy('jabatan_id')->get();
+        // show employees sort hierarki by job title
         $beritas = Berita::latest()->limit(6)->get();
         return view('web.pengurus-dpd', compact('pengurus','beritas','page_title', 'page_description'));
     }

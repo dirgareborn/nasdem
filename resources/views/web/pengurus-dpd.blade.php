@@ -25,7 +25,7 @@
                         </div>
                         <div class="member-info">
                             <h6>{{ $pengurus->nama }}</h6>
-                            <span>{{ $pengurus->jabatan->nama_jabatan }}</span>
+                            <span>{{ $pengurus->jabatan->nama_jabatan ?? null }}</span>
                         </div>
                         </div>
                     </div>

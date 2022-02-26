@@ -7,7 +7,7 @@
           <div class="col-lg-4" data-aos="fade-right">
           <div class="section-title">
           <h2 style="text-align:left;text-transform:none;">Berita Kegiatan
-dari Kader Kab. Jeneponto</h2>
+dari Kader Kab. Gowa</h2>
         </div>              
         </div>
           <div class="col-lg-4 pt-4 pt-lg-0" data-aos="fade-left">

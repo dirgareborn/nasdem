@@ -51,7 +51,7 @@
                     <tr>
                     <td>{{ $key +1 }}</td>
                     <td>{{ $row->nama }}</td>
-                    <td>{{ $row->jabatan->nama_jabatan }}</td>
+                    <td>{{ $row->jabatan->nama_jabatan ?? Null}}</td>
                     <td>
                     <div class="btn-group"> 
                         <a href="{{ route('pengurus.show', $row->id) }}" class="btn btn-sm btn-default text-primary mx-1 shadow"><i class="fa fa-eye"></i></a>

@@ -42,7 +42,7 @@
             <x-adminlte-input name="telepon" id="telepon" label="No HP" value="{{ $pengurus->telepon }}" fgroup-class="col-md-6 col-6"/>
             <x-adminlte-input name="pendidikan" id="pendidikan" label="Pendidikan Terakhir" value="{{ $pengurus->pendidikan }}" fgroup-class="col-md-6 col-6"/>       
             <x-adminlte-select label="Jabatan" name="jabatan_id" fgroup-class="col-md-6 col-6">
-                <option value="{{ $pengurus->jabatan_id }}"> {{ $pengurus->jabatan->nama_jabatan }}</option>
+                <option value="{{ $pengurus->jabatan_id }}"> {{ $pengurus->jabatan->nama_jabatan ?? Null }}</option>
                 @foreach ($jabatan as $key => $value)
                     <option value="{{ $key}}">{{$value}}</option>
                     @endforeach

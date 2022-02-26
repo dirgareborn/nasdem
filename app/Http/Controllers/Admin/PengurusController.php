@@ -27,7 +27,7 @@ class PengurusController extends Controller
     {
         $page_title       = 'Pengurus DPD';
         $page_description = 'Data Pengurus';
-        $pengurus = Pengurus::paginate(20);
+        $pengurus = Pengurus::Active()->with('jabatan')->orderBy('jabatan_id')->get();
         $jabatans = Jabatan::all();
         return view('admin.pengurus.index', compact('page_title', 'page_description','pengurus','jabatans'));
     }

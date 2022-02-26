@@ -29,4 +29,9 @@ class Pengurus extends Model
     {
         return $this->belongsTo(Jabatan::class, 'jabatan_id');
     }
+    
+    Public function scopeActive($query)
+    {
+        return $query->whereStatus('1');
+    }
 }

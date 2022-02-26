@@ -1,7 +1,7 @@
 <form action="{{ route('pengurus.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="row">
-            <x-adminlte-input name="nama" id="nama_jabatan" label="Nama Pengurus" placeholder="Nama Pengurus" fgroup-class="col-md-6 col-6"/>
+            <x-adminlte-input name="nama" id="nama" label="Nama Pengurus" placeholder="Nama Pengurus" fgroup-class="col-md-6 col-6"/>
             <x-adminlte-input name="nik" id="nik" label="NIK KTP" placeholder="NIK KTP" fgroup-class="col-md-6 col-6"/>
             <x-adminlte-select label="Jenis Kelamin" name="jenis_kelamin" fgroup-class="col-md-6 col-6">
                 <option value="1"> Laki-laki </option>
@@ -20,7 +20,7 @@
                 "singleDatePicker" => true,
                 "showDropdowns" => true,
                 "startDate" => "js:moment()",
-                "minYear" => 2000,
+                "minYear" => 1945,
                 "maxYear" => "js:parseInt(moment().format('YYYY'),10)",
                 "timePicker" => true,
                 "timePicker24Hour" => true,
@@ -41,7 +41,7 @@
             <x-adminlte-input name="telepon" id="telepon" label="No HP" placeholder="No HP" fgroup-class="col-md-6 col-6"/>
             <x-adminlte-input name="pendidikan" id="pendidikan" label="Pendidikan Terakhir" placeholder="Pendidikan Terakhir" fgroup-class="col-md-6 col-6"/>       
             <x-adminlte-select label="Jabatan" name="jabatan_id" fgroup-class="col-md-6 col-6">
-                <option value="0"> Pilih Jabatan</option>
+                <option> Pilih Jabatan</option>
                 @foreach ($jabatans as $key => $value)
                     <option value="{{ $key}}">{{$value}}</option>
                     @endforeach
